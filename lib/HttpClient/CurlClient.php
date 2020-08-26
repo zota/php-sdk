@@ -80,6 +80,9 @@ class CurlClient implements HttpClientInterface
         // set options
         $opts = [];
 
+        // prepare logging to hide sensitive data
+        $url_log = $url;
+
         $method = \strtolower($method);
         if ('get' === $method) {
             $opts[\CURLOPT_HTTPGET] = 1;
@@ -88,6 +91,9 @@ class CurlClient implements HttpClientInterface
             $opts_log['CURLOPT_HTTPGET'] = $opts[\CURLOPT_HTTPGET];
 
             if (!empty($params)) {
+                // logging marker
+                $url_log = $url . '?***';
+
                 $queryString = Helper::parametersToQueryString($params);
                 $url = $url . '?' . $queryString;
             }
@@ -97,9 +103,17 @@ class CurlClient implements HttpClientInterface
             $opts[\CURLOPT_POSTFIELDS] = \json_encode($params);
 
             // logging data
+            $params_log = array();
+            foreach ($params as $key => $value) {
+                if ('merchantOrderID' === $key) {
+                    $params_log[$key] = $value;
+                    continue;
+                }
+                $params_log[$key] = '***';
+            }
             $opts_log['CURLOPT_POST'] = $opts[\CURLOPT_POST];
             $opts_log['CURLOPT_HTTPHEADER'] = $opts[\CURLOPT_HTTPHEADER];
-            $opts_log['CURLOPT_POSTFIELDS'] = $opts[\CURLOPT_POSTFIELDS];
+            $opts_log['CURLOPT_POSTFIELDS'] = \json_encode($params_log);
         } else {
             throw new InvalidArgumentException('Unrecognized method ' . $method);
         }
@@ -125,12 +139,12 @@ class CurlClient implements HttpClientInterface
             )
         );
 
-        // logging data
-        $opts_log['CURLOPT_URL'] = $opts[\CURLOPT_URL];
+        // logging data and hide sensitive data
+        $opts_log['CURLOPT_URL'] = preg_replace('/\/request\/(.*)/', '/request/***', $url_log);
         $opts_log['CURLOPT_RETURNTRANSFER'] = $opts[\CURLOPT_RETURNTRANSFER] ? 'true' : 'false';
         $opts_log['CURLOPT_CONNECTTIMEOUT'] = $opts[\CURLOPT_CONNECTTIMEOUT];
         $opts_log['CURLOPT_SSLVERSION'] = $opts[\CURLOPT_SSLVERSION];
-        $opts_log['CURLOPT_USERAGENT'] = $opts[\CURLOPT_USERAGENT];
+        $opts_log['CURLOPT_USERAGENT'] = 'Zotapay PHP SDK ***';
 
         // logging debug
         Zotapay::getLogger()->debug('CurlClient request set opts: {opts}', ['opts' => print_r($opts_log, true)]);
