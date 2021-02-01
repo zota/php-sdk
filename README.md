@@ -3,6 +3,8 @@
 [![action](https://github.com/zotapay/php-sdk/workflows/SDK%20CI%20Matrix%20Build/badge.svg?branch=master)](https://github.com/zotapay/php-sdk/actions)
 [![action](https://github.com/zotapay/php-sdk/workflows/PHP%20PSR%20Enforcer/badge.svg?branch=master)](https://github.com/zotapay/php-sdk/actions)
 
+![php-github](https://user-images.githubusercontent.com/174284/106497899-5149e980-64c7-11eb-8b6d-92311dac8df4.jpg)
+
 # Official Zotapay PHP SDK
 
 This is the official page of the [Zotapay](https://www.zotapay.com) PHP SDK. It is intended to be used by developers who run modern PHP applications and would like to integrate our next generation payments platform.
