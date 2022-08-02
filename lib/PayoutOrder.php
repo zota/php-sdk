@@ -55,6 +55,47 @@ class PayoutOrder extends AbstractOrder
      */
     protected $customerBankArea;
 
+    /**
+     * customerCountryCode
+     * @var string
+     */
+    protected $customerCountryCode;
+
+    /**
+     * customerPersonalID
+     * @var string
+     */
+    protected $customerPersonalID;
+
+    /**
+     * customerBankAccountNumberDigit
+     * @var string
+     */
+    protected $customerBankAccountNumberDigit;
+
+    /**
+     * customerBankAccountType
+     * @var string
+     */
+    protected $customerBankAccountType;
+
+    /**
+     * customerBankSwiftCode
+     * @var string
+     */
+    protected $customerBankSwiftCode;
+
+    /**
+     * customerBankBranchDigit
+     * @var string
+     */
+    protected $customerBankBranchDigit;
+
+    /**
+     * redirectUrl
+     * @var string
+     */
+    protected $redirectUrl;
 
     /**
      * Get the value of customerBankAccountNumber
@@ -259,6 +300,180 @@ class PayoutOrder extends AbstractOrder
     public function setCustomerBankArea($customerBankArea)
     {
         $this->customerBankArea = $customerBankArea;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of customerCountryCode
+     *
+     * @return string
+     */
+    public function getCustomerCountryCode()
+    {
+        return $this->customerCountryCode;
+    }
+
+
+    /**
+     * Set the value of customerCountryCode
+     *
+     * @param string $customerCountryCode
+     *
+     * @return self
+     */
+    public function setCustomerCountryCode($customerCountryCode)
+    {
+        $this->customerCountryCode = $customerCountryCode;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of customerPersonalID
+     *
+     * @return string
+     */
+    public function getCustomerPersonalID()
+    {
+        return $this->customerPersonalID;
+    }
+
+
+    /**
+     * Set the value of customerPersonalID
+     *
+     * @param string $customerPersonalID
+     *
+     * @return self
+     */
+    public function setCustomerPersonalID($customerPersonalID)
+    {
+        $this->customerPersonalID = $customerPersonalID;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of customerBankAccountNumberDigit
+     *
+     * @return string
+     */
+    public function getCustomerBankAccountNumberDigit()
+    {
+        return $this->customerBankAccountNumberDigit;
+    }
+
+
+    /**
+     * Set the value of customerBankAccountNumberDigit
+     *
+     * @param string $customerBankAccountNumberDigit
+     *
+     * @return self
+     */
+    public function setCustomerBankAccountNumberDigit($customerBankAccountNumberDigit)
+    {
+        $this->customerBankAccountNumberDigit = $customerBankAccountNumberDigit;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of customerBankAccountType
+     *
+     * @return string
+     */
+    public function getCustomerBankAccountType()
+    {
+        return $this->customerBankAccountType;
+    }
+
+
+    /**
+     * Set the value of customerBankAccountType
+     *
+     * @param string $customerBankAccountType
+     *
+     * @return self
+     */
+    public function setCustomerBankAccountType($customerBankAccountType)
+    {
+        $this->customerBankAccountType = $customerBankAccountType;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of customerBankSwiftCode
+     *
+     * @return string
+     */
+    public function getCustomerBankSwiftCode()
+    {
+        return $this->customerBankSwiftCode;
+    }
+
+
+    /**
+     * Set the value of customerBankSwiftCode
+     *
+     * @param string $customerBankSwiftCode
+     *
+     * @return self
+     */
+    public function setCustomerBankSwiftCode($customerBankSwiftCode)
+    {
+        $this->customerBankSwiftCode = $customerBankSwiftCode;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of customerBankBranchDigit
+     *
+     * @return string
+     */
+    public function getCustomerBankBranchDigit()
+    {
+        return $this->customerBankBranchDigit;
+    }
+
+
+    /**
+     * Set the value of customerBankBranchDigit
+     *
+     * @param string $customerBankBranchDigit
+     *
+     * @return self
+     */
+    public function setCustomerBankBranchDigit($customerBankBranchDigit)
+    {
+        $this->customerBankBranchDigit = $customerBankBranchDigit;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of redirectUrl
+     *
+     * @return string
+     */
+    public function getRedirectUrl()
+    {
+        return $this->redirectUrl;
+    }
+
+    /**
+     * Set the value of redirectUrl
+     *
+     * @param string $redirectUrl
+     *
+     * @return self
+     */
+    public function setRedirectUrl($redirectUrl)
+    {
+        $this->redirectUrl = $redirectUrl;
 
         return $this;
     }

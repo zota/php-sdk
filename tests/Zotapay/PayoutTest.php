@@ -42,6 +42,13 @@ final class PayoutTest extends \PHPUnit\Framework\TestCase
                     'callbackUrl'       => 'http:://localhost/callback',
                     'customParam'       => json_encode([ 'TestCustomParam' => '123' ]),
                     'language'          => 'EN',
+                    'customerCountryCode' => 'TH',
+                    'customerPersonalID' => '12345678',
+                    'customerBankAccountNumberDigit' => '02',
+                    'customerBankAccountType'  => '03',
+                    'customerBankSwiftCode'       => '123456789',
+                    'customerBankBranchDigit'       => '04',
+                    'redirectUrl'          => 'https://testingzotapayredirecturl.com',
                 ],
 
                 // ref
@@ -126,6 +133,13 @@ final class PayoutTest extends \PHPUnit\Framework\TestCase
         $this->assertArrayHasKey('callbackUrl', $prepare);
         $this->assertArrayHasKey('customParam', $prepare);
         $this->assertArrayHasKey('language', $prepare);
+        $this->assertArrayHasKey('customerCountryCode', $prepare);
+        $this->assertArrayHasKey('customerPersonalID', $prepare);
+        $this->assertArrayHasKey('customerBankAccountNumberDigit', $prepare);
+        $this->assertArrayHasKey('customerBankAccountType', $prepare);
+        $this->assertArrayHasKey('customerBankSwiftCode', $prepare);
+        $this->assertArrayHasKey('customerBankBranchDigit', $prepare);
+        $this->assertArrayHasKey('redirectUrl', $prepare);
     }
 
 
