@@ -49,4 +49,4 @@ jobs:
       run: composer install --no-dev --no-suggest --prefer-dist --optimize-autoloader
     
     - name: PHPUnit tests
-      uses: php-actions/phpunit@v3
+      run: phpunit
