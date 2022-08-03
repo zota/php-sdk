@@ -18,12 +18,12 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest, windows-latest, macos-latest]
-        php-versions: ['7.3', '7.4', '8.0']
+        php-versions: [ '7.4', '8.0', '8.1' ]
       fail-fast: false
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -47,6 +47,6 @@ jobs:
 
     - name: Install dependencies
       run: composer install --no-dev --no-suggest --prefer-dist --optimize-autoloader
-
-    - name: Run PHP Unit
-      run: phpunit
+    
+    - name: PHPUnit tests
+      uses: php-actions/phpunit@v3
