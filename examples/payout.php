@@ -28,6 +28,13 @@ $order->setCustomerBankArea('Bank Area / City');
 $order->setCallbackUrl(ZOTAPAY_EXAMPLES_URL . '/callback.php');
 $order->setCustomParam(json_encode([ 'TestCustomParam' => '123' ]));
 $order->setLanguage('EN');
+$order->setCustomerCountryCode('TH');
+$order->setCustomerPersonalID('12345678');
+$order->setCustomerBankAccountNumberDigit('02');
+$order->setCustomerBankAccountType('03');
+$order->setCustomerBankSwiftCode('123456789');
+$order->setCustomerBankBranchDigit('04');
+$order->setRedirectUrl('https://testingzotapayredirecturl.com');
 
 // request
 $operation = new \Zotapay\Payout();

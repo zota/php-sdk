@@ -35,6 +35,14 @@ final class PayoutOrderTest extends \PHPUnit\Framework\TestCase
             'callbackUrl'       => 'http:://localhost/callback',
             'customParam'       => json_encode([ 'TestCustomParam' => '123' ]),
             'language'          => 'EN',
+            'customerCountryCode' => 'TH',
+            'customerPersonalID' => '12345678',
+            'customerBankAccountNumberDigit' => '02',
+            'customerBankAccountType'  => '03',
+            'customerBankSwiftCode'       => '123456789',
+            'customerBankBranchDigit'       => '04',
+            'redirectUrl'          => 'https://testingzotapayredirecturl.com',
+
         ];
 
         return [
