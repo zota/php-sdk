@@ -75,6 +75,13 @@ class Payout extends AbstractApiClient
            'callbackUrl'       => $order->getCallbackUrl(),
            'customParam'       => $order->getCustomParam(),
            'language'          => $order->getLanguage(),
+           'customerCountryCode'  => $order->getCustomerCountryCode(),
+           'customerPersonalID'  => $order->getCustomerPersonalID(),
+           'customerBankAccountNumberDigit'  => $order->getCustomerBankAccountNumberDigit(),
+           'customerBankAccountType'  => $order->getCustomerBankAccountType(),
+           'customerBankSwiftCode'       => $order->getCustomerBankSwiftCode(),
+           'customerBankBranchDigit'       => $order->getCustomerBankBranchDigit(),
+           'redirectUrl'          => $order->getRedirectUrl(),
         ];
     }
 
