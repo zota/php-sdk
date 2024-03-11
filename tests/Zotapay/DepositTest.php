@@ -36,6 +36,7 @@ final class DepositTest extends \PHPUnit\Framework\TestCase
                     'customerPhone'     => '+1 420-100-1000',
                     'customerIP'        => '134.201.250.130',
                     'customerBankCode'  => 'BBL',
+                    'customerBankAccountNumber' => '100200',
                     'redirectUrl'       => 'http:://localhost/redirect',
                     'callbackUrl'       => 'http:://localhost/callback',
                     'checkoutUrl'       => 'http:://localhost/checkout',
@@ -121,6 +122,7 @@ final class DepositTest extends \PHPUnit\Framework\TestCase
         $this->assertArrayHasKey('customerPhone', $prepare);
         $this->assertArrayHasKey('customerIP', $prepare);
         $this->assertArrayHasKey('customerBankCode', $prepare);
+        $this->assertArrayHasKey('customerBankAccountNumber', $prepare);
         $this->assertArrayHasKey('redirectUrl', $prepare);
         $this->assertArrayHasKey('callbackUrl', $prepare);
         $this->assertArrayHasKey('checkoutUrl', $prepare);
