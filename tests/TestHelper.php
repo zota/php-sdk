@@ -80,7 +80,7 @@ trait TestHelper
      *
      * @return array
      */
-    public function getMockData()
+    public static function getMockData()
     {
         return [
             [

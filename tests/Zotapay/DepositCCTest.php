@@ -13,7 +13,7 @@ final class DepositCCTest extends \PHPUnit\Framework\TestCase
      * Data Array
      * @return array
      */
-    public function getData()
+    public static function getData()
     {
         $merchantOrderId = !empty(getenv('API_INTEGRATION_TESTS')) ? \Zotapay\Helper\Helper::generateUuid() : '1';
 

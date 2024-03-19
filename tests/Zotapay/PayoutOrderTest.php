@@ -11,7 +11,7 @@ final class PayoutOrderTest extends \PHPUnit\Framework\TestCase
      * Data Array
      * @return array
      */
-    public function getData()
+    public static function getData()
     {
         $order = [
             'merchantOrderID'   => '1',

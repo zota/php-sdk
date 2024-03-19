@@ -11,7 +11,7 @@ final class DefaultLogHandlerTest extends \PHPUnit\Framework\TestCase
      * Data Array
      * @return array
      */
-    public function getData()
+    public static function getData()
     {
         return [
             [0, 'emergency', 'Test {message}', ['message' => 'Emergency'], '1970-01-01T00:00:00+00:00 EMERGENCY Test Emergency'],
