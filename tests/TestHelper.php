@@ -7,7 +7,6 @@ namespace Zotapay;
  */
 trait TestHelper
 {
-
     /** @var null|string original merchant unique identifier */
     protected $origMerchantId;
 

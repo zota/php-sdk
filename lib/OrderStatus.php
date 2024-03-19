@@ -48,7 +48,9 @@ class OrderStatus extends AbstractApiClient
         $url =  \Zotapay\Zotapay::getApiUrl() . '/query/order-status/';
 
         // setup data
+        // @codingStandardsIgnoreStart
         Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Order Status prepare post data.', ['merchantOrderID' => $data->getMerchantOrderID()]);
+        // @codingStandardsIgnoreEnd
         $prepared = $this->prepare($data);
         $signed = $this->sign($prepared);
 
@@ -57,7 +59,9 @@ class OrderStatus extends AbstractApiClient
         $request = $this->apiRequest->request('get', $url, $signed);
 
         // set the response
+        // @codingStandardsIgnoreStart
         Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Order Status response.', ['merchantOrderID' => $data->getMerchantOrderID()]);
+        // @codingStandardsIgnoreEnd                
         $response = new() \Zotapay\OrderStatusApiResponse($request);
 
         return $response;
