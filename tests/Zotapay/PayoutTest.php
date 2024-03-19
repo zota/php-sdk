@@ -72,7 +72,7 @@ final class PayoutTest extends \PHPUnit\Framework\TestCase
     /**
      * Payout Request
      *
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testRequest($data, $ref)
     {
@@ -100,7 +100,7 @@ final class PayoutTest extends \PHPUnit\Framework\TestCase
     /**
      * Request prepare
      *
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testPrepare($order, $ref)
     {
@@ -146,7 +146,7 @@ final class PayoutTest extends \PHPUnit\Framework\TestCase
     /**
      * Request signing
      *
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testSign($order, $ref)
     {

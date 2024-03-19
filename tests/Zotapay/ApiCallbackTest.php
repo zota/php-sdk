@@ -31,7 +31,7 @@ final class ApiCallbackTest extends \PHPUnit\Framework\TestCase
     /**
      * Callback Request with data
      *
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testCallbackWithData($data)
     {
@@ -87,7 +87,7 @@ final class ApiCallbackTest extends \PHPUnit\Framework\TestCase
     /**
      * Signature Verify
      *
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testSignatureVerify($data)
     {
@@ -109,7 +109,7 @@ final class ApiCallbackTest extends \PHPUnit\Framework\TestCase
      * Signature Verify with wrong Merchant Secret Key
      *
      * @runInSeparateProcess
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testSignatureVerifyWithWrongSignature($data)
     {
@@ -123,7 +123,7 @@ final class ApiCallbackTest extends \PHPUnit\Framework\TestCase
     /**
      * Signature Verify without signature
      *
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testSignatureVerifyWithoutSignature($data)
     {

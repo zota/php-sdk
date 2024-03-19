@@ -47,7 +47,7 @@ final class PayoutApiResponseTest extends \PHPUnit\Framework\TestCase
     /**
      * ApiResponse getters
      *
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testGetters($httpClientRequest, $ref)
     {

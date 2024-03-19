@@ -56,7 +56,7 @@ final class PayoutOrderTest extends \PHPUnit\Framework\TestCase
     /**
      * Gets Object Instance with Data in Constructor
      *
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testPayoutOrderWithData($data)
     {
@@ -69,7 +69,7 @@ final class PayoutOrderTest extends \PHPUnit\Framework\TestCase
     /**
      * Test getters
      *
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testGetters($data)
     {

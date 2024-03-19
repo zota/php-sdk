@@ -93,7 +93,7 @@ final class MerchantRedirectTest extends \PHPUnit\Framework\TestCase
      * Merchant Redirect
      *
      * @runInSeparateProcess
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testMerchantRedirect($data)
     {
@@ -121,7 +121,7 @@ final class MerchantRedirectTest extends \PHPUnit\Framework\TestCase
      * Signature Verify with wrong Merchant Secret Key
      *
      * @runInSeparateProcess
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testWithWrongSignature($data)
     {
@@ -142,7 +142,7 @@ final class MerchantRedirectTest extends \PHPUnit\Framework\TestCase
     /**
      * Signature Verify without signature
      *
-     * @dataProvider getData
+     * [DataProvider('getData')]
      */
     public function testSignatureVerifyWithoutSignature($data)
     {
