@@ -44,7 +44,7 @@ trait TestHelper
             return;
         }
 
-        $providedData = $this->getProvidedData();
+        $providedData = $this->getData();
 
         if (empty($providedData)) {
             return;
