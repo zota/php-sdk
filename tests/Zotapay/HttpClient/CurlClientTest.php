@@ -28,9 +28,9 @@ final class CurlClientTest extends \PHPUnit\Framework\TestCase
     {
         $curlClient = new CurlClient();
 
-        $curlClientReflector = new() \ReflectionClass(\Zotapay\HttpClient\CurlClient::class);
+        $curlClientReflector = new \ReflectionClass(\Zotapay\HttpClient\CurlClient::class);
 
-        $curlHandleReflection = new() \ReflectionProperty(\Zotapay\HttpClient\CurlClient::class, 'curlHandle');
+        $curlHandleReflection = new \ReflectionProperty(\Zotapay\HttpClient\CurlClient::class, 'curlHandle');
         $curlHandleReflection->setAccessible(true);
 
         $initCurlHandle = $curlClientReflector->getMethod('initCurlHandle');
@@ -48,9 +48,9 @@ final class CurlClientTest extends \PHPUnit\Framework\TestCase
     {
         $this->expectException(\Zotapay\Exception\ApiConnectException::class);
 
-        $curlClient = new() \Zotapay\HttpClient\CurlClient();
+        $curlClient = new \Zotapay\HttpClient\CurlClient();
 
-        $curlClientReflector = new() \ReflectionClass('\Zotapay\HttpClient\CurlClient');
+        $curlClientReflector = new \ReflectionClass('\Zotapay\HttpClient\CurlClient');
 
         $handleCurlError = $curlClientReflector->getMethod('handleCurlError');
         $handleCurlError->setAccessible(true);

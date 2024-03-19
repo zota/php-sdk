@@ -11,9 +11,9 @@ final class ApiConnectionExceptionTest extends \PHPUnit\Framework\TestCase
     {
         $this->expectException(ApiConnectException::class);
 
-        $curlClient = new() \Zotapay\HttpClient\CurlClient();
+        $curlClient = new \Zotapay\HttpClient\CurlClient();
 
-        $curlClientReflector = new() \ReflectionClass('\Zotapay\HttpClient\CurlClient');
+        $curlClientReflector = new \ReflectionClass('\Zotapay\HttpClient\CurlClient');
 
         $handleCurlError = $curlClientReflector->getMethod('handleCurlError');
         $handleCurlError->setAccessible(true);

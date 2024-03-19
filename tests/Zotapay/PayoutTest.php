@@ -76,8 +76,8 @@ final class PayoutTest extends \PHPUnit\Framework\TestCase
      */
     public function testRequest($data, $ref)
     {
-        $payoutOrder = new() \Zotapay\PayoutOrder($data);
-        $payout = new() \Zotapay\Payout();
+        $payoutOrder = new \Zotapay\PayoutOrder($data);
+        $payout = new \Zotapay\Payout();
         if (!empty($this->apiClientStub)) {
             $payout->setApiRequest($this->apiClientStub);
         }
@@ -104,10 +104,10 @@ final class PayoutTest extends \PHPUnit\Framework\TestCase
      */
     public function testPrepare($order, $ref)
     {
-        $payoutOrder = new() \Zotapay\PayoutOrder($order);
-        $payout = new() \Zotapay\Payout();
+        $payoutOrder = new \Zotapay\PayoutOrder($order);
+        $payout = new \Zotapay\Payout();
 
-        $reflection = new() \ReflectionClass(get_class($payout));
+        $reflection = new \ReflectionClass(get_class($payout));
         $method = $reflection->getMethod('prepare');
         $method->setAccessible(true);
         $prepare = $method->invokeArgs($payout, array($payoutOrder));
@@ -154,9 +154,9 @@ final class PayoutTest extends \PHPUnit\Framework\TestCase
             $this->markTestSkipped('Not aplicable in integration tests.');
         }
 
-        $payout = new() \Zotapay\Payout();
+        $payout = new \Zotapay\Payout();
 
-        $reflection = new() \ReflectionClass(get_class($payout));
+        $reflection = new \ReflectionClass(get_class($payout));
         $method = $reflection->getMethod('sign');
         $method->setAccessible(true);
         $signed = $method->invokeArgs($payout, array($order));
@@ -173,8 +173,8 @@ final class PayoutTest extends \PHPUnit\Framework\TestCase
     {
         \Zotapay\Zotapay::setMockResponse($mockResponse);
 
-        $payoutOrder = new() \Zotapay\PayoutOrder();
-        $payout = new() \Zotapay\Payout();
+        $payoutOrder = new \Zotapay\PayoutOrder();
+        $payout = new \Zotapay\Payout();
 
         $response = $payout->request($payoutOrder);
 

@@ -53,7 +53,7 @@ final class DepositCCApiResponseTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetters($httpClientRequest, $ref)
     {
-        $apiResponse = new() \Zotapay\DepositCCApiResponse($httpClientRequest);
+        $apiResponse = new \Zotapay\DepositCCApiResponse($httpClientRequest);
 
         static::assertSame($ref['status'], $apiResponse->getStatus());
         static::assertSame($ref['merchantOrderID'], $apiResponse->getmerchantOrderID());

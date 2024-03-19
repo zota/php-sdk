@@ -216,7 +216,7 @@ class Zotapay
     public static function getLogger()
     {
         if (null === self::$logger) {
-            return new() \Zotapay\Log\DefaultLogger(self::getLogThreshold());
+            return new \Zotapay\Log\DefaultLogger(self::getLogThreshold());
         }
 
         return self::$logger;

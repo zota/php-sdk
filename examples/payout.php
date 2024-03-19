@@ -5,7 +5,7 @@ require 'config.php';
 /**
  * Payout ----------------------------------------
  */
-$order = new() \Zotapay\PayoutOrder();
+$order = new \Zotapay\PayoutOrder();
 
 $order->setMerchantOrderID('312');
 $order->setMerchantOrderDesc('Test order description');
@@ -37,7 +37,7 @@ $order->setCustomerBankBranchDigit('04');
 $order->setRedirectUrl('https://testingzotapayredirecturl.com');
 
 // request
-$operation = new() \Zotapay\Payout();
+$operation = new \Zotapay\Payout();
 $response = $operation->request($order);
 
 // result

@@ -32,7 +32,7 @@ final class DefaultLoggerTest extends \PHPUnit\Framework\TestCase
      */
     public function testLog($level, $message, $context)
     {
-        $defaultLogger = new() \Zotapay\Log\DefaultLogger();
+        $defaultLogger = new \Zotapay\Log\DefaultLogger();
         $log = $defaultLogger->log($level, $message, $context);
         $this->assertSame(true, $log);
     }
@@ -43,9 +43,9 @@ final class DefaultLoggerTest extends \PHPUnit\Framework\TestCase
      */
     public function testConstructorWithNotValidThreshold()
     {
-        $defaultLogger = new() \Zotapay\Log\DefaultLogger(-1);
+        $defaultLogger = new \Zotapay\Log\DefaultLogger(-1);
 
-        $tresholdReflection = new() \ReflectionProperty(\Zotapay\Log\DefaultLogger::class, 'threshold');
+        $tresholdReflection = new \ReflectionProperty(\Zotapay\Log\DefaultLogger::class, 'threshold');
         $tresholdReflection->setAccessible(true);
 
         $this->assertSame(0, $tresholdReflection->getValue($defaultLogger));
@@ -59,7 +59,7 @@ final class DefaultLoggerTest extends \PHPUnit\Framework\TestCase
     {
         $this->expectException(\Zotapay\Exception\InvalidArgumentException::class);
 
-        $defaultLogger = new() \Zotapay\Log\DefaultLogger();
+        $defaultLogger = new \Zotapay\Log\DefaultLogger();
         $defaultLogger->log('not-valid-level', 'Test with not valid Level');
     }
 
@@ -68,7 +68,7 @@ final class DefaultLoggerTest extends \PHPUnit\Framework\TestCase
      */
     public function testEmergency()
     {
-        $defaultLogger = new() \Zotapay\Log\DefaultLogger();
+        $defaultLogger = new \Zotapay\Log\DefaultLogger();
         $log = $defaultLogger->emergency('Test Emergency');
         $this->assertSame(true, $log);
     }
@@ -78,7 +78,7 @@ final class DefaultLoggerTest extends \PHPUnit\Framework\TestCase
      */
     public function testAlert()
     {
-        $defaultLogger = new() \Zotapay\Log\DefaultLogger();
+        $defaultLogger = new \Zotapay\Log\DefaultLogger();
         $log = $defaultLogger->alert('Test Alert');
         $this->assertSame(true, $log);
     }
@@ -88,7 +88,7 @@ final class DefaultLoggerTest extends \PHPUnit\Framework\TestCase
      */
     public function testCritical()
     {
-        $defaultLogger = new() \Zotapay\Log\DefaultLogger();
+        $defaultLogger = new \Zotapay\Log\DefaultLogger();
         $log = $defaultLogger->critical('Test Critical');
         $this->assertSame(true, $log);
     }
@@ -98,7 +98,7 @@ final class DefaultLoggerTest extends \PHPUnit\Framework\TestCase
      */
     public function testError()
     {
-        $defaultLogger = new() \Zotapay\Log\DefaultLogger();
+        $defaultLogger = new \Zotapay\Log\DefaultLogger();
         $log = $defaultLogger->error('Test Error');
         $this->assertSame(true, $log);
     }
@@ -108,7 +108,7 @@ final class DefaultLoggerTest extends \PHPUnit\Framework\TestCase
      */
     public function testWarning()
     {
-        $defaultLogger = new() \Zotapay\Log\DefaultLogger();
+        $defaultLogger = new \Zotapay\Log\DefaultLogger();
         $log = $defaultLogger->warning('Test Warning');
         $this->assertSame(true, $log);
     }
@@ -118,7 +118,7 @@ final class DefaultLoggerTest extends \PHPUnit\Framework\TestCase
      */
     public function testNotice()
     {
-        $defaultLogger = new() \Zotapay\Log\DefaultLogger();
+        $defaultLogger = new \Zotapay\Log\DefaultLogger();
         $log = $defaultLogger->notice('Test Notice');
         $this->assertSame(true, $log);
     }
@@ -128,7 +128,7 @@ final class DefaultLoggerTest extends \PHPUnit\Framework\TestCase
      */
     public function testInfo()
     {
-        $defaultLogger = new() \Zotapay\Log\DefaultLogger();
+        $defaultLogger = new \Zotapay\Log\DefaultLogger();
         $log = $defaultLogger->info('Test Info');
         $this->assertSame(true, $log);
     }
@@ -138,7 +138,7 @@ final class DefaultLoggerTest extends \PHPUnit\Framework\TestCase
      */
     public function testDebug()
     {
-        $defaultLogger = new() \Zotapay\Log\DefaultLogger();
+        $defaultLogger = new \Zotapay\Log\DefaultLogger();
         $log = $defaultLogger->debug('Test Debug');
         $this->assertSame(true, $log);
     }

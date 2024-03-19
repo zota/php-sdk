@@ -54,14 +54,14 @@ class DefaultLogger implements LoggerInterface
     public function log($level, $message, $context = array())
     {
         if (!\Zotapay\Log\LogLevels::isValidLevel($level)) {
-            throw new() \Zotapay\Exception\InvalidArgumentException();
+            throw new \Zotapay\Exception\InvalidArgumentException();
         }
 
         if ($this->threshold > \Zotapay\Log\LogLevels::getLevelSeverity($level)) {
             return;
         }
 
-        $handler = new() \Zotapay\Log\DefaultLogHandler();
+        $handler = new \Zotapay\Log\DefaultLogHandler();
 
         return $handler->handle(time(), $level, $message, $context);
     }

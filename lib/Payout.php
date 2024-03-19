@@ -20,7 +20,7 @@ class Payout extends AbstractApiClient
         $mockResponse = $this->getMockResponse();
         if (!empty($mockResponse)) {
             Zotapay::getLogger()->debug('Using mocked response for payout request.', []);
-            $response = new() \Zotapay\PayoutApiResponse($mockResponse);
+            $response = new \Zotapay\PayoutApiResponse($mockResponse);
             return $response;
         }
 
@@ -40,7 +40,7 @@ class Payout extends AbstractApiClient
 
         // set the response
         Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Payout response.', ['merchantOrderID' => $order->getMerchantOrderID()]);
-        $response = new() \Zotapay\PayoutApiResponse($request);
+        $response = new \Zotapay\PayoutApiResponse($request);
 
         return $response;
     }

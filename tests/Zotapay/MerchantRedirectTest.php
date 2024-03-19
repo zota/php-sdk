@@ -105,7 +105,7 @@ final class MerchantRedirectTest extends \PHPUnit\Framework\TestCase
         }
 
         \Zotapay\Zotapay::setMerchantSecretKey('MERCHANT-SECRET-KEY');
-        $merchantRedirect = new() \Zotapay\MerchantRedirect();
+        $merchantRedirect = new \Zotapay\MerchantRedirect();
 
         // test getters
         static::assertSame($data['billingDescriptor'], $merchantRedirect->getBillingDescriptor());
@@ -135,7 +135,7 @@ final class MerchantRedirectTest extends \PHPUnit\Framework\TestCase
         \Zotapay\Zotapay::setLogThreshold('critical');
         \Zotapay\Zotapay::setMerchantSecretKey('WRONG-SECRET-KEY');
         $this->expectException(\Zotapay\Exception\InvalidSignatureException::class);
-        $merchantRedirect = new() \Zotapay\MerchantRedirect();
+        $merchantRedirect = new \Zotapay\MerchantRedirect();
     }
 
 
@@ -154,8 +154,8 @@ final class MerchantRedirectTest extends \PHPUnit\Framework\TestCase
         }
 
         \Zotapay\Zotapay::setMerchantSecretKey('MERCHANT-SECRET-KEY');
-        $merchantRedirect = new() \Zotapay\MerchantRedirect();
-        $merchantRedirectReflector = new() \ReflectionClass('\Zotapay\MerchantRedirect');
+        $merchantRedirect = new \Zotapay\MerchantRedirect();
+        $merchantRedirectReflector = new \ReflectionClass('\Zotapay\MerchantRedirect');
 
         $signatureVerify = $merchantRedirectReflector->getMethod('signatureVerify');
         $signatureVerify->setAccessible(true);

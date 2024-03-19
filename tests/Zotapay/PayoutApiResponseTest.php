@@ -51,7 +51,7 @@ final class PayoutApiResponseTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetters($httpClientRequest, $ref)
     {
-        $apiResponse = new() \Zotapay\PayoutApiResponse($httpClientRequest);
+        $apiResponse = new \Zotapay\PayoutApiResponse($httpClientRequest);
 
         static::assertSame($ref['merchantOrderID'], $apiResponse->getmerchantOrderID());
         static::assertSame($ref['orderID'], $apiResponse->getorderID());

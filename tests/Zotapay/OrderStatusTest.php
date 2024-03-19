@@ -72,8 +72,8 @@ final class OrderStatusTest extends \PHPUnit\Framework\TestCase
                 'language'          => 'EN',
             ];
 
-            $depositOrder = new() \Zotapay\DepositOrder($order);
-            $deposit = new() \Zotapay\Deposit();
+            $depositOrder = new \Zotapay\DepositOrder($order);
+            $deposit = new \Zotapay\Deposit();
             $response = $deposit->request($depositOrder);
 
             $data['merchantOrderID'] = $merchantOrderID;
@@ -85,8 +85,8 @@ final class OrderStatusTest extends \PHPUnit\Framework\TestCase
             ];
         }
 
-        $orderStatusData = new() \Zotapay\OrderStatusData($data);
-        $orderStatus = new() \Zotapay\OrderStatus();
+        $orderStatusData = new \Zotapay\OrderStatusData($data);
+        $orderStatus = new \Zotapay\OrderStatus();
         if (!empty($this->apiClientStub)) {
             $orderStatus->setApiRequest($this->apiClientStub);
         }
@@ -108,10 +108,10 @@ final class OrderStatusTest extends \PHPUnit\Framework\TestCase
      */
     public function testPrepare($data, $ref)
     {
-        $OrderStatusData = new() \Zotapay\OrderStatusData($data);
-        $OrderStatus = new() \Zotapay\OrderStatus();
+        $OrderStatusData = new \Zotapay\OrderStatusData($data);
+        $OrderStatus = new \Zotapay\OrderStatus();
 
-        $reflection = new() \ReflectionClass(get_class($OrderStatus));
+        $reflection = new \ReflectionClass(get_class($OrderStatus));
         $method = $reflection->getMethod('prepare');
         $method->setAccessible(true);
         $prepare = $method->invokeArgs($OrderStatus, array($OrderStatusData));
@@ -138,9 +138,9 @@ final class OrderStatusTest extends \PHPUnit\Framework\TestCase
         $data['timestamp'] = $timestamp;
         $data['merchantID'] = \Zotapay\Zotapay::getMerchantId();
 
-        $orderStatus = new() \Zotapay\OrderStatus();
+        $orderStatus = new \Zotapay\OrderStatus();
 
-        $reflection = new() \ReflectionClass(get_class($orderStatus));
+        $reflection = new \ReflectionClass(get_class($orderStatus));
         $method = $reflection->getMethod('sign');
         $method->setAccessible(true);
         $signed = $method->invokeArgs($orderStatus, [$data]);
@@ -157,8 +157,8 @@ final class OrderStatusTest extends \PHPUnit\Framework\TestCase
     {
         \Zotapay\Zotapay::setMockResponse($mockResponse);
 
-        $orderStatusData = new() \Zotapay\OrderStatusData();
-        $orderStatus = new() \Zotapay\OrderStatus();
+        $orderStatusData = new \Zotapay\OrderStatusData();
+        $orderStatus = new \Zotapay\OrderStatus();
 
         $response = $orderStatus->request($orderStatusData);
 

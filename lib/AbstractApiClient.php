@@ -21,7 +21,7 @@ abstract class AbstractApiClient implements ApiClientInterface
     public function __construct($data = null)
     {
         // Get the ApiRequest object
-        $this->apiRequest = new() \Zotapay\ApiRequest();
+        $this->apiRequest = new \Zotapay\ApiRequest();
     }
 
 

@@ -36,7 +36,7 @@ final class ApiCallbackTest extends \PHPUnit\Framework\TestCase
     public function testCallbackWithData($data)
     {
         \Zotapay\Zotapay::setMerchantSecretKey('EXAMPLE-SECRET-KEY');
-        $apiCallback = new() \Zotapay\ApiCallback($data['stream']);
+        $apiCallback = new \Zotapay\ApiCallback($data['stream']);
 
         $dataArray = $data['data'];
 
@@ -67,7 +67,7 @@ final class ApiCallbackTest extends \PHPUnit\Framework\TestCase
     {
         \Zotapay\Zotapay::setLogThreshold('critical');
         $this->expectException(\Zotapay\Exception\ApiCallbackException::class);
-        $apiCallback = new() \Zotapay\ApiCallback(null);
+        $apiCallback = new \Zotapay\ApiCallback(null);
     }
 
 
@@ -80,7 +80,7 @@ final class ApiCallbackTest extends \PHPUnit\Framework\TestCase
     {
         \Zotapay\Zotapay::setLogThreshold('critical');
         $this->expectException(\Zotapay\Exception\ApiCallbackException::class);
-        $apiCallback = new() \Zotapay\ApiCallback(__FILE__);
+        $apiCallback = new \Zotapay\ApiCallback(__FILE__);
     }
 
 
@@ -93,9 +93,9 @@ final class ApiCallbackTest extends \PHPUnit\Framework\TestCase
     {
         \Zotapay\Zotapay::setMerchantSecretKey('EXAMPLE-SECRET-KEY');
 
-        $apiCallback = new() \Zotapay\ApiCallback($data['stream']);
+        $apiCallback = new \Zotapay\ApiCallback($data['stream']);
 
-        $apiCallbackReflector = new() \ReflectionClass('\Zotapay\ApiCallback');
+        $apiCallbackReflector = new \ReflectionClass('\Zotapay\ApiCallback');
 
         $signatureVerify = $apiCallbackReflector->getMethod('signatureVerify');
         $signatureVerify->setAccessible(true);
@@ -116,7 +116,7 @@ final class ApiCallbackTest extends \PHPUnit\Framework\TestCase
         \Zotapay\Zotapay::setLogThreshold('critical');
         \Zotapay\Zotapay::setMerchantSecretKey('WRONG-SECRET-KEY');
         $this->expectException(\Zotapay\Exception\InvalidSignatureException::class);
-        $apiCallback = new() \Zotapay\ApiCallback($data['stream']);
+        $apiCallback = new \Zotapay\ApiCallback($data['stream']);
     }
 
 
@@ -129,9 +129,9 @@ final class ApiCallbackTest extends \PHPUnit\Framework\TestCase
     {
         \Zotapay\Zotapay::setMerchantSecretKey('EXAMPLE-SECRET-KEY');
 
-        $apiCallback = new() \Zotapay\ApiCallback($data['stream']);
+        $apiCallback = new \Zotapay\ApiCallback($data['stream']);
 
-        $apiCallbackReflector = new() \ReflectionClass('\Zotapay\ApiCallback');
+        $apiCallbackReflector = new \ReflectionClass('\Zotapay\ApiCallback');
 
         $signatureVerify = $apiCallbackReflector->getMethod('signatureVerify');
         $signatureVerify->setAccessible(true);

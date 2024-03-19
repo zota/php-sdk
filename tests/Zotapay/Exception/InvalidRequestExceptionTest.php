@@ -11,6 +11,6 @@ final class InvalidRequestExceptionTest extends \PHPUnit\Framework\TestCase
     {
         $this->expectException(InvalidRequestException::class);
 
-        throw new() \Zotapay\Exception\InvalidRequestException();
+        throw new \Zotapay\Exception\InvalidRequestException();
     }
 }

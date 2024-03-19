@@ -48,7 +48,7 @@ class ApiRequest
         $this->httpClient = $httpClient;
 
         if ($this->httpClient === null) {
-            $this->httpClient = new() \Zotapay\HttpClient\CurlClient();
+            $this->httpClient = new \Zotapay\HttpClient\CurlClient();
         }
 
         return $this;

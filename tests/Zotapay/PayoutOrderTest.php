@@ -60,7 +60,7 @@ final class PayoutOrderTest extends \PHPUnit\Framework\TestCase
      */
     public function testPayoutOrderWithData($data)
     {
-        $zotapayPayoutOrder = new() \Zotapay\PayoutOrder($data);
+        $zotapayPayoutOrder = new \Zotapay\PayoutOrder($data);
 
         $this->assertInstanceOf(\Zotapay\PayoutOrder::class, $zotapayPayoutOrder);
     }
@@ -73,7 +73,7 @@ final class PayoutOrderTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetters($data)
     {
-        $zotapayDepositOrder = new() \Zotapay\PayoutOrder($data);
+        $zotapayDepositOrder = new \Zotapay\PayoutOrder($data);
 
         foreach ($data as $key => $value) {
             $getter = 'get' . \ucwords($key);

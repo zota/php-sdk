@@ -16,6 +16,6 @@ final class ApiCallbackExceptionTest extends \PHPUnit\Framework\TestCase
 
         \Zotapay\Zotapay::setLogThreshold('critical'); // skip errors
 
-        new() \Zotapay\ApiCallback();
+        new \Zotapay\ApiCallback();
     }
 }

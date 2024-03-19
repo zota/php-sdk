@@ -41,7 +41,7 @@ class OrderStatus extends AbstractApiClient
         $mockResponse = $this->getMockResponse();
         if (!empty($mockResponse)) {
             Zotapay::getLogger()->debug('Using mocked response for order status request.', []);
-            $response = new() \Zotapay\OrderStatusApiResponse($mockResponse);
+            $response = new \Zotapay\OrderStatusApiResponse($mockResponse);
             return $response;
         }
         // setup url
@@ -62,7 +62,7 @@ class OrderStatus extends AbstractApiClient
         // @codingStandardsIgnoreStart
         Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Order Status response.', ['merchantOrderID' => $data->getMerchantOrderID()]);
         // @codingStandardsIgnoreEnd                
-        $response = new() \Zotapay\OrderStatusApiResponse($request);
+        $response = new \Zotapay\OrderStatusApiResponse($request);
 
         return $response;
     }
