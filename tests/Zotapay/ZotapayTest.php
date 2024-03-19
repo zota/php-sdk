@@ -14,6 +14,16 @@ final class ZotapayTest extends \PHPUnit\Framework\TestCase
 
 
     /**
+     * Data Array
+     * @return array
+     */
+    public function getData()
+    {
+        return array();
+    }
+
+
+    /**
      * Get Logger
      */
     public function testGetLogger()
