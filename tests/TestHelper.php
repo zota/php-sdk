@@ -50,7 +50,7 @@ trait TestHelper
             return;
         }
 
-        list($input, $expected) = $providedData;
+        list($input, $expected) = reset($providedData);
 
         $responseData = [
             'code'    => $expected['code'],
