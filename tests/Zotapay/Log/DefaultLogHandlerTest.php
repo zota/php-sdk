@@ -28,7 +28,7 @@ final class DefaultLogHandlerTest extends \PHPUnit\Framework\TestCase
     /**
      * \Zotapay\Log\DefaultLogHandler::handle()
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testHandle($timestamp, $level, $message, $context)
     {
@@ -40,7 +40,7 @@ final class DefaultLogHandlerTest extends \PHPUnit\Framework\TestCase
     /**
      * \Zotapay\Log\DefaultLogHandler::handle()
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testHandleWithLogDestination($timestamp, $level, $message, $context)
     {
@@ -60,7 +60,7 @@ final class DefaultLogHandlerTest extends \PHPUnit\Framework\TestCase
     /**
      * \Zotapay\Log\DefaultLogHandler::formatEntry()
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testformatEntry($timestamp, $level, $message, $context, $formatted)
     {

@@ -28,7 +28,7 @@ final class LogLevelsTest extends \PHPUnit\Framework\TestCase
     /**
      * \Zotapay\Log\LogLevels::isValidLevel()
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testIsValidLevelWtihValidLevel($level, $severity)
     {
@@ -50,7 +50,7 @@ final class LogLevelsTest extends \PHPUnit\Framework\TestCase
     /**
      * \Zotapay\Log\LogLevels::getLevelSeverity()
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testGetLevelSeverity($level, $severity)
     {

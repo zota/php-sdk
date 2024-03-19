@@ -17,7 +17,7 @@ final class ZotapayTest extends \PHPUnit\Framework\TestCase
      * Data Array
      * @return array
      */
-    public static function getData()
+    public function getData()
     {
         return array();
     }

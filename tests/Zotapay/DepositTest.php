@@ -66,7 +66,7 @@ final class DepositTest extends \PHPUnit\Framework\TestCase
     /**
      * Deposit Request
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testRequest($order, $ref)
     {
@@ -95,7 +95,7 @@ final class DepositTest extends \PHPUnit\Framework\TestCase
     /**
      * Request prepare
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testPrepare($order, $ref)
     {
@@ -133,7 +133,7 @@ final class DepositTest extends \PHPUnit\Framework\TestCase
     /**
      * Request signing
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testSign($order, $ref)
     {

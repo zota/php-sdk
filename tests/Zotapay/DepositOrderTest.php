@@ -81,7 +81,7 @@ final class DepositOrderTest extends \PHPUnit\Framework\TestCase
     /**
      * Gets Object Instance with Data in Constructor
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testDepositOrderWithData($data)
     {
@@ -94,7 +94,7 @@ final class DepositOrderTest extends \PHPUnit\Framework\TestCase
     /**
      * Test getters
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testGetters($data)
     {

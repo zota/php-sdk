@@ -36,7 +36,7 @@ final class HelperTest extends \PHPUnit\Framework\TestCase
     /**
      * Parameters to query string
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testParametersToQueryString($data, $ref)
     {

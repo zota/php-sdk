@@ -28,7 +28,7 @@ final class DefaultLoggerTest extends \PHPUnit\Framework\TestCase
     /**
      * \Zotapay\Log\DefaultLogger::log()
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testLog($level, $message, $context)
     {

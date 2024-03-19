@@ -72,7 +72,7 @@ final class DepositCCTest extends \PHPUnit\Framework\TestCase
     /**
      * Deposit Credit Card Request
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testRequest($order, $ref)
     {
@@ -101,7 +101,7 @@ final class DepositCCTest extends \PHPUnit\Framework\TestCase
     /**
      * Request prepare
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testPrepare($order, $ref)
     {
@@ -143,7 +143,7 @@ final class DepositCCTest extends \PHPUnit\Framework\TestCase
     /**
      * Request signing
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testSign($order, $ref)
     {

@@ -70,7 +70,7 @@ final class OrdersReportTest extends \PHPUnit\Framework\TestCase
     /**
      * Order Status Request
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testRequest($data, $ref)
     {
@@ -92,7 +92,7 @@ final class OrdersReportTest extends \PHPUnit\Framework\TestCase
     /**
      * Request prepare
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testPrepare($data, $ref)
     {
@@ -118,7 +118,7 @@ final class OrdersReportTest extends \PHPUnit\Framework\TestCase
     /**
      * Request signing
      *
-     * [DataProvider('getData')]
+     * @dataProvider getData
      */
     public function testSign($data, $ref)
     {
