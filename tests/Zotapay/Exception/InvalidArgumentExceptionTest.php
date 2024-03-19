@@ -11,7 +11,7 @@ final class InvalidArgumentExceptionTest extends \PHPUnit\Framework\TestCase
     {
         $this->expectException(InvalidArgumentException::class);
 
-        $curlClient = new \Zotapay\HttpClient\CurlClient();
+        $curlClient = new() \Zotapay\HttpClient\CurlClient();
 
         $curlClient->request('non-existing', '', []);
     }

@@ -147,7 +147,7 @@ class ApiCallback
 
             header("HTTP/1.1 401 Unauthorized");
 
-            throw new \Zotapay\Exception\InvalidSignatureException($message);
+            throw new() \Zotapay\Exception\InvalidSignatureException($message);
         }
 
         // set data
@@ -185,7 +185,7 @@ class ApiCallback
 
         header("HTTP/1.1 400 Bad request");
 
-        throw new \Zotapay\Exception\ApiCallbackException($message);
+        throw new() \Zotapay\Exception\ApiCallbackException($message);
     }
 
 

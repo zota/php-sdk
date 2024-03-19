@@ -74,7 +74,7 @@ final class OrderStatusApiResponseTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetters($httpClientRequest, $ref)
     {
-        $apiResponse = new \Zotapay\OrderStatusApiResponse($httpClientRequest);
+        $apiResponse = new() \Zotapay\OrderStatusApiResponse($httpClientRequest);
 
         static::assertSame($ref['type'], $apiResponse->getType());
         static::assertSame($ref['status'], $apiResponse->getStatus());

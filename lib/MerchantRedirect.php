@@ -66,7 +66,7 @@ class MerchantRedirect
 
             header("HTTP/1.1 401 Unauthorized");
 
-            throw new \Zotapay\Exception\InvalidSignatureException($message);
+            throw new() \Zotapay\Exception\InvalidSignatureException($message);
         }
 
         // set properties

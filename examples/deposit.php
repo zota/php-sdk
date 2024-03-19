@@ -7,7 +7,7 @@ require 'config.php';
  */
 
 // setup order
-$order = new \Zotapay\DepositOrder();
+$order = new() \Zotapay\DepositOrder();
 
 $order->setMerchantOrderID('180');
 $order->setMerchantOrderDesc('Test order description');
@@ -31,7 +31,7 @@ $order->setCustomParam(json_encode([ 'TestCustomParam' => '123' ]));
 $order->setLanguage('EN');
 
 // request
-$operation = new \Zotapay\Deposit();
+$operation = new() \Zotapay\Deposit();
 $response = $operation->request($order);
 
 // result

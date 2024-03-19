@@ -74,8 +74,8 @@ final class OrdersReportTest extends \PHPUnit\Framework\TestCase
      */
     public function testRequest($data, $ref)
     {
-        $ordersReportData = new \Zotapay\OrdersReportData($data);
-        $ordersReport = new \Zotapay\OrdersReport();
+        $ordersReportData = new() \Zotapay\OrdersReportData($data);
+        $ordersReport = new() \Zotapay\OrdersReport();
         if (!empty($this->apiClientStub)) {
             $ordersReport->setApiRequest($this->apiClientStub);
         }
@@ -96,10 +96,10 @@ final class OrdersReportTest extends \PHPUnit\Framework\TestCase
      */
     public function testPrepare($data, $ref)
     {
-        $ordersReportData = new \Zotapay\OrdersReportData($data);
-        $ordersReport = new \Zotapay\OrdersReport();
+        $ordersReportData = new() \Zotapay\OrdersReportData($data);
+        $ordersReport = new() \Zotapay\OrdersReport();
 
-        $reflection = new \ReflectionClass(get_class($ordersReport));
+        $reflection = new() \ReflectionClass(get_class($ordersReport));
         $method = $reflection->getMethod('prepare');
         $method->setAccessible(true);
         $prepare = $method->invokeArgs($ordersReport, array($ordersReportData));
@@ -133,9 +133,9 @@ final class OrdersReportTest extends \PHPUnit\Framework\TestCase
         $data['timestamp'] = $timestamp;
         $data['requestID'] = $uuid;
 
-        $ordersReport = new \Zotapay\OrdersReport();
+        $ordersReport = new() \Zotapay\OrdersReport();
 
-        $reflection = new \ReflectionClass(get_class($ordersReport));
+        $reflection = new() \ReflectionClass(get_class($ordersReport));
         $method = $reflection->getMethod('sign');
         $method->setAccessible(true);
         $signed = $method->invokeArgs($ordersReport, array($data));
@@ -152,8 +152,8 @@ final class OrdersReportTest extends \PHPUnit\Framework\TestCase
     {
         \Zotapay\Zotapay::setMockResponse($mockResponse);
 
-        $ordersReportData = new \Zotapay\OrdersReportData();
-        $ordersReport = new \Zotapay\OrdersReport();
+        $ordersReportData = new() \Zotapay\OrdersReportData();
+        $ordersReport = new() \Zotapay\OrdersReport();
 
         $response = $ordersReport->request($ordersReportData);
 

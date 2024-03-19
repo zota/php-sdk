@@ -29,6 +29,7 @@ final class DepositOrderTest extends \PHPUnit\Framework\TestCase
             'customerPhone'     => '+1 420-100-1000',
             'customerIP'        => '134.201.250.130',
             'customerBankCode'  => '',
+            'customerBankAccountNumber' => '100200',
             'redirectUrl'       => 'http:://localhost/redirect',
             'callbackUrl'       => 'http:://localhost/callback',
             'checkoutUrl'       => 'http:://localhost/checkout',
@@ -60,7 +61,7 @@ final class DepositOrderTest extends \PHPUnit\Framework\TestCase
      */
     public function testDepositOrderWithoutData()
     {
-        $depositOrder = new \Zotapay\DepositOrder();
+        $depositOrder = new() \Zotapay\DepositOrder();
 
         $this->assertNull($depositOrder->getCustomerAddress());
         $this->assertNull($depositOrder->getCustomerCountryCode());
@@ -84,7 +85,7 @@ final class DepositOrderTest extends \PHPUnit\Framework\TestCase
      */
     public function testDepositOrderWithData($data)
     {
-        $zotapayDepositOrder = new \Zotapay\DepositOrder($data);
+        $zotapayDepositOrder = new() \Zotapay\DepositOrder($data);
 
         $this->assertInstanceOf(\Zotapay\DepositOrder::class, $zotapayDepositOrder);
     }
@@ -97,7 +98,7 @@ final class DepositOrderTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetters($data)
     {
-        $zotapayDepositOrder = new \Zotapay\DepositOrder($data);
+        $zotapayDepositOrder = new() \Zotapay\DepositOrder($data);
 
         foreach ($data as $key => $value) {
             $getter = 'get' . \ucwords($key);

@@ -38,7 +38,7 @@ class OrdersReport extends AbstractApiClient
         $mockResponse = $this->getMockResponse();
         if (!empty($mockResponse)) {
             Zotapay::getLogger()->debug('Using mocked response for orders report request.', []);
-            $response = new \Zotapay\OrdersReportApiResponse($mockResponse);
+            $response = new() \Zotapay\OrdersReportApiResponse($mockResponse);
             return $response;
         }
         // setup url
@@ -55,7 +55,7 @@ class OrdersReport extends AbstractApiClient
 
         // set the response
         Zotapay::getLogger()->debug('Orders Report response.');
-        $response = new \Zotapay\OrdersReportApiResponse($request);
+        $response = new() \Zotapay\OrdersReportApiResponse($request);
 
         return $response;
     }

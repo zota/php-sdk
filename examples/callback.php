@@ -61,7 +61,7 @@ $filename = dirname(__FILE__) . '/' . uniqid() . '.json';
 // simulate callback
 try {
     file_put_contents($filename, $data);
-    $callback = new \Zotapay\ApiCallback($filename);
+    $callback = new() \Zotapay\ApiCallback($filename);
 
     // result
     echo '<pre>';

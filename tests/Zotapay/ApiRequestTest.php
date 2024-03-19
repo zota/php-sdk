@@ -9,14 +9,14 @@ final class ApiRequestTest extends \PHPUnit\Framework\TestCase
 {
     public function testGetHttpClient()
     {
-        $ApiRequest = new \Zotapay\ApiRequest();
+        $ApiRequest = new() \Zotapay\ApiRequest();
         $this->assertInstanceOf(\Zotapay\HttpClient\CurlClient::class, $ApiRequest->getHttpClient());
     }
 
     public function testSetHttpClient()
     {
-        $ApiRequest = new \Zotapay\ApiRequest();
-        $HttpClient = new \Zotapay\HttpClient\CurlClient();
+        $ApiRequest = new() \Zotapay\ApiRequest();
+        $HttpClient = new() \Zotapay\HttpClient\CurlClient();
         $ApiRequest->setHttpClient($HttpClient);
         $this->assertSame($HttpClient, $ApiRequest->getHttpClient());
     }
@@ -31,7 +31,7 @@ final class ApiRequestTest extends \PHPUnit\Framework\TestCase
         $httpClientStub = $this->createMock(\Zotapay\HttpClient\CurlClient::class);
         $httpClientStub->method('request')->willReturn($testResponse);
 
-        $ApiRequest = new \Zotapay\ApiRequest();
+        $ApiRequest = new() \Zotapay\ApiRequest();
         $ApiRequest->setHttpClient($httpClientStub);
 
         $response = $ApiRequest->request('GET', 'http://dummy', null);

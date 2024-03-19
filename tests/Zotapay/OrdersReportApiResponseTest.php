@@ -64,7 +64,7 @@ final class OrdersReportApiResponseTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetters($httpClientRequest, $ref)
     {
-        $apiResponse = new \Zotapay\OrdersReportApiResponse($httpClientRequest);
+        $apiResponse = new() \Zotapay\OrdersReportApiResponse($httpClientRequest);
 
         static::assertSame($ref['data'], $apiResponse->getData());
         static::assertSame($ref['message'], $apiResponse->getMessage());

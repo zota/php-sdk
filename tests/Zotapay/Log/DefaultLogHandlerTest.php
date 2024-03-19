@@ -32,7 +32,7 @@ final class DefaultLogHandlerTest extends \PHPUnit\Framework\TestCase
      */
     public function testHandle($timestamp, $level, $message, $context)
     {
-        $handler = new \Zotapay\Log\DefaultLogHandler();
+        $handler = new() \Zotapay\Log\DefaultLogHandler();
 
         static::assertSame(true, $handler->handle($timestamp, $level, $message, $context));
     }
@@ -47,7 +47,7 @@ final class DefaultLogHandlerTest extends \PHPUnit\Framework\TestCase
         $logDestination = dirname(__FILE__, 3) . '/test.log';
         \Zotapay\Zotapay::setLogDestination($logDestination);
 
-        $handler = new \Zotapay\Log\DefaultLogHandler();
+        $handler = new() \Zotapay\Log\DefaultLogHandler();
 
         static::assertSame(true, $handler->handle($timestamp, $level, $message, $context));
 

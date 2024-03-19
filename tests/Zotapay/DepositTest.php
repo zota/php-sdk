@@ -70,8 +70,8 @@ final class DepositTest extends \PHPUnit\Framework\TestCase
      */
     public function testRequest($order, $ref)
     {
-        $depositOrder = new \Zotapay\DepositOrder($order);
-        $deposit = new \Zotapay\Deposit();
+        $depositOrder = new() \Zotapay\DepositOrder($order);
+        $deposit = new() \Zotapay\Deposit();
         if (!empty($this->apiClientStub)) {
             $deposit->setApiRequest($this->apiClientStub);
         }
@@ -99,10 +99,10 @@ final class DepositTest extends \PHPUnit\Framework\TestCase
      */
     public function testPrepare($order, $ref)
     {
-        $depositOrder = new \Zotapay\DepositOrder($order);
-        $deposit = new \Zotapay\Deposit();
+        $depositOrder = new() \Zotapay\DepositOrder($order);
+        $deposit = new() \Zotapay\Deposit();
 
-        $reflection = new \ReflectionClass(get_class($deposit));
+        $reflection = new() \ReflectionClass(get_class($deposit));
         $method = $reflection->getMethod('prepare');
         $method->setAccessible(true);
         $prepare = $method->invokeArgs($deposit, array($depositOrder));
@@ -141,9 +141,9 @@ final class DepositTest extends \PHPUnit\Framework\TestCase
             $this->markTestSkipped('Not aplicable in integration tests.');
         }
 
-        $deposit = new \Zotapay\Deposit();
+        $deposit = new() \Zotapay\Deposit();
 
-        $reflection = new \ReflectionClass(get_class($deposit));
+        $reflection = new() \ReflectionClass(get_class($deposit));
         $method = $reflection->getMethod('sign');
         $method->setAccessible(true);
         $signed = $method->invokeArgs($deposit, array($order));
@@ -160,8 +160,8 @@ final class DepositTest extends \PHPUnit\Framework\TestCase
     {
         \Zotapay\Zotapay::setMockResponse($mockResponse);
 
-        $depositOrder = new \Zotapay\DepositOrder();
-        $deposit = new \Zotapay\Deposit();
+        $depositOrder = new() \Zotapay\DepositOrder();
+        $deposit = new() \Zotapay\Deposit();
 
         $response = $deposit->request($depositOrder);
 

@@ -11,6 +11,6 @@ final class InvalidSignatureExceptionTest extends \PHPUnit\Framework\TestCase
     {
         $this->expectException(\Zotapay\Exception\InvalidSignatureException::class);
 
-        throw new \Zotapay\Exception\InvalidSignatureException();
+        throw new() \Zotapay\Exception\InvalidSignatureException();
     }
 }

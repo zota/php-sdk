@@ -68,7 +68,7 @@ foreach ($data['error'] as $key => $value) {
 
 try {
     \Zotapay\Zotapay::setMerchantSecretKey('MERCHANT-SECRET-KEY');
-    $redirect = new \Zotapay\MerchantRedirect();
+    $redirect = new() \Zotapay\MerchantRedirect();
 
     // result
     echo '<pre>';

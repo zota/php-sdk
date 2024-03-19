@@ -7,7 +7,7 @@ require 'config.php';
  */
 
 // setup order
-$order = new \Zotapay\DepositOrder();
+$order = new() \Zotapay\DepositOrder();
 
 $order->setMerchantOrderID('403');
 $order->setMerchantOrderDesc('Test order description');
@@ -38,7 +38,7 @@ $order->setCardExpirationYear('21');
 $order->setCardCvv('111');
 
 // request
-$operation = new \Zotapay\DepositCC();
+$operation = new() \Zotapay\DepositCC();
 $response = $operation->request($order);
 
 // result

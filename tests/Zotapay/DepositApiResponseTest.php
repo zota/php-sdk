@@ -53,7 +53,7 @@ final class DepositApiResponseTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetters($httpClientRequest, $ref)
     {
-        $apiResponse = new \Zotapay\DepositApiResponse($httpClientRequest);
+        $apiResponse = new() \Zotapay\DepositApiResponse($httpClientRequest);
 
         static::assertSame($ref['depositUrl'], $apiResponse->getDepositUrl());
         static::assertSame($ref['merchantOrderID'], $apiResponse->getmerchantOrderID());

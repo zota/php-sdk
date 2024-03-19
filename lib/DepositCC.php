@@ -20,7 +20,7 @@ class DepositCC extends AbstractApiClient
         $mockResponse = $this->getMockResponse();
         if (!empty($mockResponse)) {
             Zotapay::getLogger()->debug('Using mocked response for depositCC request.', []);
-            $response = new \Zotapay\DepositCCApiResponse($mockResponse);
+            $response = new() \Zotapay\DepositCCApiResponse($mockResponse);
             return $response;
         }
 
@@ -40,7 +40,7 @@ class DepositCC extends AbstractApiClient
 
         // set the response
         Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Deposit CC response.', ['merchantOrderID' => $order->getMerchantOrderID()]);
-        $response = new \Zotapay\DepositCCApiResponse($request);
+        $response = new() \Zotapay\DepositCCApiResponse($request);
 
         return $response;
     }

@@ -29,7 +29,7 @@ final class ZotapayTest extends \PHPUnit\Framework\TestCase
      */
     public function testSetLogger()
     {
-        $logger = new \Zotapay\Log\DefaultLogger();
+        $logger = new() \Zotapay\Log\DefaultLogger();
         Zotapay::setLogger($logger);
 
         $this->assertSame($logger, Zotapay::getLogger());
