@@ -20,14 +20,14 @@ class LogLevels
      *     'info': Informational messages.
      *     'debug': Debug-level messages.
      */
-    private const EMERGENCY = 'emergency';
-    private const ALERT     = 'alert';
-    private const CRITICAL  = 'critical';
-    private const ERROR     = 'error';
-    private const WARNING   = 'warning';
-    private const NOTICE    = 'notice';
-    private const INFO      = 'info';
-    private const DEBUG     = 'debug';
+    public const EMERGENCY = 'emergency';
+    public const ALERT     = 'alert';
+    public const CRITICAL  = 'critical';
+    public const ERROR     = 'error';
+    public const WARNING   = 'warning';
+    public const NOTICE    = 'notice';
+    public const INFO      = 'info';
+    public const DEBUG     = 'debug';
 
     /**
      * Level strings mapped to integer severity.
