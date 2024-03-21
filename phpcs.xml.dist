@@ -11,9 +11,17 @@
 
     <config name="ignore_warnings_on_exit" value="1"/>
 
-    <exclude-pattern>*/discovery/*</exclude-pattern>
+    <exclude-pattern>*/examples/*</exclude-pattern>
 
     <rule ref="PSR1" />
     <rule ref="PSR2" />
     <rule ref="PSR12" />
+
+    <rule ref="PSR12.Classes.ClassInstantiation.MissingParentheses">
+        <exclude name="PSR12.Classes.ClassInstantiation.MissingParentheses"/>
+    </rule>
+
+    <rule ref="Generic.Files.LineLength">
+        <exclude name="Generic.Files.LineLength"/>
+    </rule>
 </ruleset>

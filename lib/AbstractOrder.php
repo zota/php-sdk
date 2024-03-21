@@ -56,6 +56,12 @@ abstract class AbstractOrder extends AbstractData
     protected $customerPhone;
 
     /**
+     * customerBankAccountNumber
+     * @var string
+     */
+    protected $customerBankAccountNumber;
+
+    /**
      * customerBankCode
      * @var string
      */
@@ -305,6 +311,32 @@ abstract class AbstractOrder extends AbstractData
     public function setCustomerPhone($customerPhone)
     {
         $this->customerPhone = $customerPhone;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of customerBankAccountNumber
+     *
+     * @return string
+     */
+    public function getCustomerBankAccountNumber()
+    {
+        return $this->customerBankAccountNumber;
+    }
+
+
+    /**
+     * Set the value of customerBankAccountNumber
+     *
+     * @param string $customerBankAccountNumber
+     *
+     * @return self
+     */
+    public function setCustomerBankAccountNumber($customerBankAccountNumber)
+    {
+        $this->customerBankAccountNumber = $customerBankAccountNumber;
 
         return $this;
     }

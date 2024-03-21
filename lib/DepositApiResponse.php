@@ -7,7 +7,6 @@ namespace Zotapay;
  */
 class DepositApiResponse extends ApiResponse
 {
-
     /**
      * Get the value of depositUrl field from reponse data.
      *

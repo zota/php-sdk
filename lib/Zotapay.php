@@ -10,7 +10,7 @@ class Zotapay
     /**
      * SDK Version
      */
-    public const VERSION = 'v1.0.20';
+    public const VERSION = 'v1.1.2';
 
     /**
      * A merchant unique identifier, used for identification

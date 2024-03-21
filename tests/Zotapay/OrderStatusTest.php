@@ -13,7 +13,7 @@ final class OrderStatusTest extends \PHPUnit\Framework\TestCase
      * Data Array
      * @return array
      */
-    public function getData()
+    public static function getData()
     {
         return [
             [
@@ -51,7 +51,7 @@ final class OrderStatusTest extends \PHPUnit\Framework\TestCase
             $merchantOrderID = \Zotapay\Helper\Helper::generateUuid();
             $order = [
                 'merchantOrderID'   => $merchantOrderID,
-                'merchantOrderDesc' => 'Test order description',
+                'merchantOrderDesc' => 'Order status test description',
                 'orderAmount'       => '100.00',
                 'orderCurrency'     => 'USD',
                 'customerEmail'     => 'testing@zotapay-api.com',
@@ -65,6 +65,7 @@ final class OrderStatusTest extends \PHPUnit\Framework\TestCase
                 'customerPhone'     => '+1 420-100-1000',
                 'customerIP'        => '134.201.250.130',
                 'customerBankCode'  => 'BBL',
+                'customerBankAccountNumber' => '100200',
                 'redirectUrl'       => 'http:://localhost/redirect',
                 'callbackUrl'       => 'http:://localhost/callback',
                 'checkoutUrl'       => 'http:://localhost/checkout',

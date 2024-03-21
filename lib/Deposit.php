@@ -7,7 +7,6 @@ namespace Zotapay;
  */
 class Deposit extends AbstractApiClient
 {
-
     /**
      * Make a deposit request to Zotapay API.
      *
@@ -31,7 +30,9 @@ class Deposit extends AbstractApiClient
                 \Zotapay\Zotapay::getEndpoint();
 
         // setup data
+        // @codingStandardsIgnoreStart
         Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Deposit prepare post data.', ['merchantOrderID' => $order->getMerchantOrderID()]);
+        // @codingStandardsIgnoreEnd
         $data = $this->prepare($order);
         $signed = $this->sign($data);
 
@@ -40,7 +41,9 @@ class Deposit extends AbstractApiClient
         $request = $this->apiRequest->request('post', $url, $signed);
 
         // set the response
+        // @codingStandardsIgnoreStart
         Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Deposit response.', ['merchantOrderID' => $order->getMerchantOrderID()]);
+        // @codingStandardsIgnoreEnd
         $response = new \Zotapay\DepositApiResponse($request);
 
         return $response;
@@ -70,6 +73,7 @@ class Deposit extends AbstractApiClient
             'customerPhone'     => $order->getCustomerPhone(),
             'customerIP'        => $order->getCustomerIP(),
             'customerBankCode'  => $order->getCustomerBankCode(),
+            'customerBankAccountNumber' => $order->getCustomerBankAccountNumber(),
             'redirectUrl'       => $order->getRedirectUrl(),
             'callbackUrl'       => $order->getCallbackUrl(),
             'checkoutUrl'       => $order->getCheckoutUrl(),

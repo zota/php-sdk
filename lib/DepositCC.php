@@ -69,6 +69,7 @@ class DepositCC extends AbstractApiClient
             'customerPhone'     => $order->getCustomerPhone(),
             'customerIP'        => $order->getCustomerIP(),
             'customerBankCode'  => $order->getCustomerBankCode(),
+            'customerBankAccountNumber' => $order->getCustomerBankAccountNumber(),
             'redirectUrl'       => $order->getRedirectUrl(),
             'callbackUrl'       => $order->getCallbackUrl(),
             'checkoutUrl'       => $order->getCheckoutUrl(),

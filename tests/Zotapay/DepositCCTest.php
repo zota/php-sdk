@@ -13,13 +13,13 @@ final class DepositCCTest extends \PHPUnit\Framework\TestCase
      * Data Array
      * @return array
      */
-    public function getData()
+    public static function getData()
     {
         $merchantOrderId = !empty(getenv('API_INTEGRATION_TESTS')) ? \Zotapay\Helper\Helper::generateUuid() : '1';
 
         $orderData = [
             'merchantOrderID'   => $merchantOrderId,
-            'merchantOrderDesc' => 'Test order description',
+            'merchantOrderDesc' => 'Deposit CC test description',
             'orderAmount'       => '100.00',
             'orderCurrency'     => 'USD',
             'customerEmail'     => 'testing@zotapay-api.com',
@@ -32,7 +32,8 @@ final class DepositCCTest extends \PHPUnit\Framework\TestCase
             'customerZipCode'   => '90015',
             'customerPhone'     => '+1 420-100-1000',
             'customerIP'        => '134.201.250.130',
-            'customerBankCode'  => '',
+            'customerBankCode'  => 'BBL',
+            'customerBankAccountNumber' => '100200',
             'redirectUrl'       => 'http:://localhost/redirect',
             'callbackUrl'       => 'http:://localhost/callback',
             'checkoutUrl'       => 'http:://localhost/checkout',
@@ -128,6 +129,7 @@ final class DepositCCTest extends \PHPUnit\Framework\TestCase
         $this->assertArrayHasKey('customerPhone', $prepare);
         $this->assertArrayHasKey('customerIP', $prepare);
         $this->assertArrayHasKey('customerBankCode', $prepare);
+        $this->assertArrayHasKey('customerBankAccountNumber', $prepare);
         $this->assertArrayHasKey('redirectUrl', $prepare);
         $this->assertArrayHasKey('callbackUrl', $prepare);
         $this->assertArrayHasKey('checkoutUrl', $prepare);

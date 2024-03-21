@@ -11,11 +11,11 @@ final class PayoutOrderTest extends \PHPUnit\Framework\TestCase
      * Data Array
      * @return array
      */
-    public function getData()
+    public static function getData()
     {
         $order = [
             'merchantOrderID'   => '1',
-            'merchantOrderDesc' => 'Test order description',
+            'merchantOrderDesc' => 'Payout order test description',
             'orderAmount'       => '100.00',
             'orderCurrency'     => 'USD',
             'customerEmail'     => 'testing@zotapay-api.com',

@@ -8,12 +8,6 @@ namespace Zotapay;
 class PayoutOrder extends AbstractOrder
 {
     /**
-     * customerBankAccountNumber
-     * @var string
-     */
-    protected $customerBankAccountNumber;
-
-    /**
      * customerBankAccountName
      * @var string
      */
