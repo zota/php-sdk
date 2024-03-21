@@ -22,7 +22,7 @@ final class DepositTest extends \PHPUnit\Framework\TestCase
                 // data
                 [
                     'merchantOrderID'   => $merchantOrderId,
-                    'merchantOrderDesc' => 'Test order description',
+                    'merchantOrderDesc' => 'Deposit test description',
                     'orderAmount'       => '100.00',
                     'orderCurrency'     => 'USD',
                     'customerEmail'     => 'testing@zotapay-api.com',

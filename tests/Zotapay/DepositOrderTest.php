@@ -15,7 +15,7 @@ final class DepositOrderTest extends \PHPUnit\Framework\TestCase
     {
         $order = [
             'merchantOrderID'   => '1',
-            'merchantOrderDesc' => 'Test order description',
+            'merchantOrderDesc' => 'Deposit order test description',
             'orderAmount'       => '100.00',
             'orderCurrency'     => 'USD',
             'customerEmail'     => 'testing@zotapay-api.com',

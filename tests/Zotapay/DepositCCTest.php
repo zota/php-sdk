@@ -19,7 +19,7 @@ final class DepositCCTest extends \PHPUnit\Framework\TestCase
 
         $orderData = [
             'merchantOrderID'   => $merchantOrderId,
-            'merchantOrderDesc' => 'Test order description',
+            'merchantOrderDesc' => 'Deposit CC test description',
             'orderAmount'       => '100.00',
             'orderCurrency'     => 'USD',
             'customerEmail'     => 'testing@zotapay-api.com',

@@ -22,7 +22,7 @@ final class PayoutTest extends \PHPUnit\Framework\TestCase
                 // data
                 [
                     'merchantOrderID'   => $merchantOrderId,
-                    'merchantOrderDesc' => 'Test order description',
+                    'merchantOrderDesc' => 'Payout test description',
                     'orderAmount'       => '100.00',
                     'orderCurrency'     => 'USD',
                     'customerEmail'     => 'customer@just-for-test.com',

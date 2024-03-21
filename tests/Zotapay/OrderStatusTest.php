@@ -51,7 +51,7 @@ final class OrderStatusTest extends \PHPUnit\Framework\TestCase
             $merchantOrderID = \Zotapay\Helper\Helper::generateUuid();
             $order = [
                 'merchantOrderID'   => $merchantOrderID,
-                'merchantOrderDesc' => 'Test order description',
+                'merchantOrderDesc' => 'Order status test description',
                 'orderAmount'       => '100.00',
                 'orderCurrency'     => 'USD',
                 'customerEmail'     => 'testing@zotapay-api.com',
