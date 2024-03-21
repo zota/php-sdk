@@ -1,4 +1,4 @@
-.phpunit.cache/test-results
+.phpunit.result.cache
 vendor/**
 composer.lock
 coverage.xml
