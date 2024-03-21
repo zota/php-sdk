@@ -65,6 +65,7 @@ final class OrderStatusTest extends \PHPUnit\Framework\TestCase
                 'customerPhone'     => '+1 420-100-1000',
                 'customerIP'        => '134.201.250.130',
                 'customerBankCode'  => 'BBL',
+                'customerBankAccountNumber' => '100200',
                 'redirectUrl'       => 'http:://localhost/redirect',
                 'callbackUrl'       => 'http:://localhost/callback',
                 'checkoutUrl'       => 'http:://localhost/checkout',
