@@ -129,6 +129,7 @@ final class DepositCCTest extends \PHPUnit\Framework\TestCase
         $this->assertArrayHasKey('customerPhone', $prepare);
         $this->assertArrayHasKey('customerIP', $prepare);
         $this->assertArrayHasKey('customerBankCode', $prepare);
+        $this->assertArrayHasKey('customerBankAccountNumber', $prepare);
         $this->assertArrayHasKey('redirectUrl', $prepare);
         $this->assertArrayHasKey('callbackUrl', $prepare);
         $this->assertArrayHasKey('checkoutUrl', $prepare);
