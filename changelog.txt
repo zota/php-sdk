@@ -1,0 +1,10 @@
+*** Zotapay PHP SDK Changelog ***
+
+2024-03-21 - v1.1.2
+* customerBankAccountNumber parameter added to Deposit 
+
+2020-08-26 - v1.1.1
+* Sensitive data removed from logs
+
+2020-08-26 - v1.1.0
+* Initial release

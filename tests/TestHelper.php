@@ -7,7 +7,6 @@ namespace Zotapay;
  */
 trait TestHelper
 {
-
     /** @var null|string original merchant unique identifier */
     protected $origMerchantId;
 
@@ -45,13 +44,13 @@ trait TestHelper
             return;
         }
 
-        $providedData = $this->getProvidedData();
+        $providedData = $this->getData();
 
         if (empty($providedData)) {
             return;
         }
 
-        list($input, $expected) = $providedData;
+        list($input, $expected) = reset($providedData);
 
         $responseData = [
             'code'    => $expected['code'],
@@ -81,7 +80,7 @@ trait TestHelper
      *
      * @return array
      */
-    public function getMockData()
+    public static function getMockData()
     {
         return [
             [

@@ -11,7 +11,7 @@ final class ApiCallbackTest extends \PHPUnit\Framework\TestCase
      * Data Array
      * @return array
      */
-    public function getData()
+    public static function getData()
     {
         $stream = dirname(__FILE__, 2) . '/callback.json';
         $fileContents = \file_get_contents($stream);

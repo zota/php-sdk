@@ -13,7 +13,7 @@ final class PayoutTest extends \PHPUnit\Framework\TestCase
      * Data Array
      * @return array
      */
-    public function getData()
+    public static function getData()
     {
         $merchantOrderId = !empty(getenv('API_INTEGRATION_TESTS')) ? \Zotapay\Helper\Helper::generateUuid() : '1';
 
@@ -22,7 +22,7 @@ final class PayoutTest extends \PHPUnit\Framework\TestCase
                 // data
                 [
                     'merchantOrderID'   => $merchantOrderId,
-                    'merchantOrderDesc' => 'Test order description',
+                    'merchantOrderDesc' => 'Payout test description',
                     'orderAmount'       => '100.00',
                     'orderCurrency'     => 'USD',
                     'customerEmail'     => 'customer@just-for-test.com',
