@@ -1,19 +1,22 @@
-[![codecov](https://codecov.io/gh/zotapay/php-sdk/branch/master/graph/badge.svg?token=6M6BPB0HYP)](https://codecov.io/gh/zotapay/php-sdk)
-[![action](https://github.com/zotapay/php-sdk/workflows/PHP%20Quicktest/badge.svg?branch=master)](https://github.com/zotapay/php-sdk/actions)
-[![action](https://github.com/zotapay/php-sdk/workflows/SDK%20CI%20Matrix%20Build/badge.svg?branch=master)](https://github.com/zotapay/php-sdk/actions)
-[![action](https://github.com/zotapay/php-sdk/workflows/PHP%20PSR%20Enforcer/badge.svg?branch=master)](https://github.com/zotapay/php-sdk/actions)
+[![codecov](https://codecov.io/gh/zota/php-sdk/branch/master/graph/badge.svg?token=6M6BPB0HYP)](https://codecov.io/gh/zota/php-sdk)
+[![action](https://github.com/zota/php-sdk/workflows/PHP%20Quicktest/badge.svg?branch=master)](https://github.com/zota/php-sdk/actions)
+[![action](https://github.com/zota/php-sdk/workflows/SDK%20CI%20Matrix%20Build/badge.svg?branch=master)](https://github.com/zota/php-sdk/actions)
+[![action](https://github.com/zota/php-sdk/workflows/PHP%20PSR%20Enforcer/badge.svg?branch=master)](https://github.com/zota/php-sdk/actions)
 
-![php-github](https://user-images.githubusercontent.com/174284/106497899-5149e980-64c7-11eb-8b6d-92311dac8df4.jpg)
 
-# Official Zotapay PHP SDK
+![php-sdk](https://github.com/user-attachments/assets/10eb7dd9-778c-4419-8322-8180d67373f7)
 
-This is the official page of the [Zotapay](https://www.zotapay.com) PHP SDK. It is intended to be used by developers who run modern PHP applications and would like to integrate our next generation payments platform.
+
+
+# Official Zota PHP SDK
+
+This is the official page of the [Zota](https://www.zota.com) PHP SDK. It is intended to be used by developers who run modern PHP applications and would like to integrate our next-generation payments platform.
 
 ## Introduction
 PHP SDK provides all the neccessary methods for integrating the Zotapay Merchant API. This SDK is used by clients, as well as all the related eCommerce plugins for mainstream PHP applications.
 
 ## Requirements
-- A functioning Zotapay Sandbox or Production account and related credentials
+- A functioning Zota Sandbox or Production account and related credentials
 - PHP version 7.2.0 or greater
 - Client URL Library (cURL) version 7.34.0 or greater
 - JSON extension enabled
@@ -21,7 +24,7 @@ PHP SDK provides all the neccessary methods for integrating the Zotapay Merchant
 ## Usage
 
 ### Main configuration
-After all the files are loaded configuration is needed. This can be done with the static methods provided in Zotapay class. Configuration includes:
+After all the files are loaded configuration is needed. This can be done with the static methods provided in Zota class. Configuration includes:
 - Credentials
 - API url - test or production environment
 - Endpoint
@@ -43,7 +46,7 @@ First the data object has to be created and all the needed data setup with the s
 After that the request class (ex. Deposit) is created and the request method is called with the data object as parameter.
 
 ### Retrieving the response
-Every request method returns response object with available getters. In every response object are included getters providing the code, the message and the data as they are received from the API. Also in every response object are included getters for the body of the response, the HTTP code and the JSON. All other getters are request specific and are available for easier usage of the response further.
+Every request method returns response object with available getters. In every response object are included getters providing the code, the message and the data as they are received from the API. Also in every response object are included getters for the body of the response, the HTTP code and the JSON. All other getters are request-specific and are available for easier usage of the response further.
 
 ### Callback and Merchant redirect handlers
 Classes for callbacks and redirects handling are available with the corresponding getters:
@@ -76,7 +79,7 @@ Logging:
 - `logger.php` - DefaultLogger usage
 
 ## Resources
-The Zotapay API guide can be found on the official API Documentation pages for [deposit](https://doc.zotapay.com/deposit/1.0/) and [payout](https://doc.zotapay.com/payout/1.0/) operations.
+The Zota API guide can be found on the official API Documentation pages for [deposit](https://doc.zota.com/deposit/1.0/) and [payout](https://doc.zota.com/payout/1.0/) operations.
 
 ## Support
-This SDK is supported by Zotapay. For sign-up and sales inquiries, please contact sales@zotapay.com. For Support, please use support@zotapay.com and include customer identifiable information, along with a description of the issue.
+This SDK is supported and maintaned by Zota. For sign-up and sales inquiries, please contact sales@zota.com. For Support, please use support@zota.com and include customer identifiable information, along with a description of the issue.
