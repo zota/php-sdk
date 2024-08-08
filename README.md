@@ -1,8 +1,7 @@
 [![codecov](https://codecov.io/gh/zota/php-sdk/branch/master/graph/badge.svg?token=6M6BPB0HYP)](https://codecov.io/gh/zota/php-sdk)
-[![action](https://github.com/zota/php-sdk/workflows/PHP%20Quicktest/badge.svg?branch=master)](https://github.com/zota/php-sdk/actions)
-[![action](https://github.com/zota/php-sdk/workflows/SDK%20CI%20Matrix%20Build/badge.svg?branch=master)](https://github.com/zota/php-sdk/actions)
-[![action](https://github.com/zota/php-sdk/workflows/PHP%20PSR%20Enforcer/badge.svg?branch=master)](https://github.com/zota/php-sdk/actions)
-
+[![PHP Quicktest](https://github.com/zota/php-sdk/actions/workflows/php-quicktest.yml/badge.svg)](https://github.com/zota/php-sdk/actions/workflows/php-quicktest.yml)
+[![SDK CI Matrix Build](https://github.com/zota/php-sdk/actions/workflows/ci-matrix.yml/badge.svg)](https://github.com/zota/php-sdk/actions/workflows/ci-matrix.yml)
+[![PHP PSR Enforcer](https://github.com/zota/php-sdk/actions/workflows/phpcs.yml/badge.svg)](https://github.com/zota/php-sdk/actions/workflows/phpcs.yml)
 
 ![php-sdk](https://github.com/user-attachments/assets/10eb7dd9-778c-4419-8322-8180d67373f7)
 
