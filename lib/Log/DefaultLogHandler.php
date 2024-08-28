@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay\Log;
+namespace Zota\Log;
 
 /**
  * Class DefaultLogHandler.
@@ -22,7 +22,7 @@ class DefaultLogHandler
         $entry = self::formatEntry($timestamp, $level, $message, $context);
 
         // check log destination
-        $logDestination = \Zotapay\Zotapay::getLogDestination();
+        $logDestination = \Zota\Zota::getLogDestination();
 
         if (null !== $logDestination && touch($logDestination)) {
             return \error_log($entry . PHP_EOL, 3, $logDestination);

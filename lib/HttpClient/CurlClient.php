@@ -1,12 +1,12 @@
 <?php
 
-namespace Zotapay\HttpClient;
+namespace Zota\HttpClient;
 
-use Zotapay\Helper\Helper;
-use Zotapay\Exception\ApiConnectException;
-use Zotapay\Exception\HttpClientException;
-use Zotapay\Exception\InvalidArgumentException;
-use Zotapay\Zotapay;
+use Zota\Helper\Helper;
+use Zota\Exception\ApiConnectException;
+use Zota\Exception\HttpClientException;
+use Zota\Exception\InvalidArgumentException;
+use Zota\Zota;
 
 /**
  * Class CurlClient.
@@ -29,7 +29,7 @@ class CurlClient implements HttpClientInterface
     /**
      * Check cURL availability and minimum required version.
      *
-     * @throws \Zotapay\Exception\HttpClientException
+     * @throws \Zota\Exception\HttpClientException
      */
     public function __construct()
     {
@@ -68,7 +68,7 @@ class CurlClient implements HttpClientInterface
      * @param string $url full representation of the requested url
      * @param array $params the data passed to the request
      *
-     * @throws \Zotapay\Exception\InvalidArgumentException
+     * @throws \Zota\Exception\InvalidArgumentException
      *
      * @return array|false
      */
@@ -119,7 +119,7 @@ class CurlClient implements HttpClientInterface
         }
 
         // logging debug
-        Zotapay::getLogger()->debug('CurlClient request method: {method}', ['method' => $method]);
+        Zota::getLogger()->debug('CurlClient request method: {method}', ['method' => $method]);
 
         $opts[\CURLOPT_URL] = $url;
         $opts[\CURLOPT_RETURNTRANSFER] = true;
@@ -128,7 +128,7 @@ class CurlClient implements HttpClientInterface
         $opts[\CURLOPT_SSLVERSION] = self::DEFAULT_SSLVERSION;
         $opts[\CURLOPT_USERAGENT] = sprintf(
             self::USERAGENT,
-            Zotapay::VERSION,
+            Zota::VERSION,
             \implode(
                 '; ',
                 [
@@ -144,21 +144,21 @@ class CurlClient implements HttpClientInterface
         $opts_log['CURLOPT_RETURNTRANSFER'] = $opts[\CURLOPT_RETURNTRANSFER] ? 'true' : 'false';
         $opts_log['CURLOPT_CONNECTTIMEOUT'] = $opts[\CURLOPT_CONNECTTIMEOUT];
         $opts_log['CURLOPT_SSLVERSION'] = $opts[\CURLOPT_SSLVERSION];
-        $opts_log['CURLOPT_USERAGENT'] = 'Zotapay PHP SDK ***';
+        $opts_log['CURLOPT_USERAGENT'] = 'Zota PHP SDK ***';
 
         // logging debug
-        Zotapay::getLogger()->debug('CurlClient request set opts: {opts}', ['opts' => print_r($opts_log, true)]);
+        Zota::getLogger()->debug('CurlClient request set opts: {opts}', ['opts' => print_r($opts_log, true)]);
 
         \curl_setopt_array($this->curlHandle, $opts);
 
         // execute request
-        Zotapay::getLogger()->debug('CurlClient execute request.');
+        Zota::getLogger()->debug('CurlClient execute request.');
         $request = \curl_exec($this->curlHandle);
 
         if (false === $request) {
             $errno = \curl_errno($this->curlHandle);
             $error = \curl_error($this->curlHandle);
-            Zotapay::getLogger()->error(
+            Zota::getLogger()->error(
                 'CurlClient request error [{errno}]: {error} at {url}',
                 [
                     'errno' => $errno,
@@ -168,11 +168,11 @@ class CurlClient implements HttpClientInterface
             );
         } else {
             $code = \curl_getinfo($this->curlHandle, \CURLINFO_HTTP_CODE);
-            Zotapay::getLogger()->debug('CurlClient request HTTP_CODE {code}', ['code' => $code]);
+            Zota::getLogger()->debug('CurlClient request HTTP_CODE {code}', ['code' => $code]);
         }
 
         // close handle
-        Zotapay::getLogger()->debug('CurlClient close handle.');
+        Zota::getLogger()->debug('CurlClient close handle.');
         $this->closeCurlHandle();
 
         // handle error
@@ -192,7 +192,7 @@ class CurlClient implements HttpClientInterface
      * @param int $errno
      * @param string $error
      *
-     * @throws \Zotapay\Exception\ApiConnectException
+     * @throws \Zota\Exception\ApiConnectException
      */
     private function handleCurlError($url, $errno, $error)
     {
@@ -201,7 +201,7 @@ class CurlClient implements HttpClientInterface
         switch ($errno) {
             // @codeCoverageIgnoreStart
             case \CURLE_COULDNT_CONNECT:
-                $message .= 'Could not connect to Zotapay. ';
+                $message .= 'Could not connect to Zota. ';
                 break;
             case \CURLE_COULDNT_RESOLVE_HOST:
                 $message .= 'Could not resolve host. ';
@@ -226,7 +226,7 @@ class CurlClient implements HttpClientInterface
     /**
      * Initializes the curl handle. If already initialized, the handle is closed first.
      *
-     * @throws \Zotapay\Exception\ApiConnectException
+     * @throws \Zota\Exception\ApiConnectException
      */
     private function initCurlHandle()
     {

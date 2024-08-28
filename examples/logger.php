@@ -1,6 +1,6 @@
 <?php
 
-use Zotapay\Zotapay;
+use Zota\Zota;
 
 // error reporting
 ini_set('error_reporting', E_ALL);
@@ -12,9 +12,9 @@ require 'autoload.php';
  * Logger ----------------------------------------
  */
 $logDestination = dirname(__FILE__) . '/test.log';
-\Zotapay\Zotapay::setLogDestination($logDestination);
+\Zota\Zota::setLogDestination($logDestination);
 
 $message = 'Test {test}';
 $context = [ 'test' => '1' ];
 
-\Zotapay\Zotapay::getLogger()->critical($message, $context);
+\Zota\Zota::getLogger()->critical($message, $context);

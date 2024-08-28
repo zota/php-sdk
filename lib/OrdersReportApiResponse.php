@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * Class OrdersReportApiResponse.
@@ -16,7 +16,7 @@ class OrdersReportApiResponse extends ApiResponse
     public function __construct($httpClientRequest)
     {
         if (false === $httpClientRequest) {
-            $this->message = 'Zotapay API Response not valid.';
+            $this->message = 'Zota API Response not valid.';
             return;
         }
 

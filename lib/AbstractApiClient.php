@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * Abstarct Class AbstractApiClient.
@@ -10,27 +10,27 @@ abstract class AbstractApiClient implements ApiClientInterface
     /**
      * ApiRequest instance
      *
-     * @var \Zotapay\ApiRequest
+     * @var \Zota\ApiRequest
      */
     protected $apiRequest;
 
 
     /**
-     * @param \Zotapay\Data $data
+     * @param \Zota\Data $data
      */
     public function __construct($data = null)
     {
         // Get the ApiRequest object
-        $this->apiRequest = new \Zotapay\ApiRequest();
+        $this->apiRequest = new \Zota\ApiRequest();
     }
 
 
     /**
-     * Zotapay API request.
+     * Zota API request.
      *
      * @codeCoverageIgnore
      *
-     * @param \Zotapay\Data $data
+     * @param \Zota\Data $data
      *
      * @return self
      */
@@ -44,7 +44,7 @@ abstract class AbstractApiClient implements ApiClientInterface
      *
      * @codeCoverageIgnore
      *
-     * @param \Zotapay\ZotapayOrder $order
+     * @param \Zota\ZotaOrder $order
      *
      * @return array
      */
@@ -85,9 +85,9 @@ abstract class AbstractApiClient implements ApiClientInterface
      */
     public function getMockResponse()
     {
-        $mockResponse = \Zotapay\Zotapay::getMockResponse();
+        $mockResponse = \Zota\Zota::getMockResponse();
         if (!empty($mockResponse)) {
-            \Zotapay\Zotapay::setMockResponse(null);
+            \Zota\Zota::setMockResponse(null);
         }
 
         return $mockResponse;

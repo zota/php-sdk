@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay\HttpClient;
+namespace Zota\HttpClient;
 
 /**
  * HttpClientInterface interface.
@@ -12,14 +12,14 @@ interface HttpClientInterface
      *
      * %1$s is for SDK version, %2$s is for implementation class and version.
      */
-    public const USERAGENT = 'Zotapay PHP SDK %1$s (%2$s)';
+    public const USERAGENT = 'Zota PHP SDK %1$s (%2$s)';
 
     /**
      * @param string $method method used for the request
      * @param string $url full representation of the requested url
      * @param array $params the data passed to the request
      *
-     * @throws \Zotapay\Exception\InvalidArgumentException
+     * @throws \Zota\Exception\InvalidArgumentException
      *
      * @return array|false
      */

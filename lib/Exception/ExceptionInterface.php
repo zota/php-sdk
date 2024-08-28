@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay\Exception;
+namespace Zota\Exception;
 
 /**
  * ExceptionInterface.

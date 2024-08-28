@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * Helper trait.
@@ -13,34 +13,34 @@ trait TestHelper
     /** @var null|string original secret key */
     protected $origMerchantSecretKey;
 
-    /** @var null|string original version of the Zotapay API */
+    /** @var null|string original version of the Zota API */
     protected $origEndpoint;
 
     /** @var null|string original base URL */
     protected $origApiBase;
 
-    /** @var null|\Zotapay\ApiRequest ApiRequest mock object */
+    /** @var null|\Zota\ApiRequest ApiRequest mock object */
     private $apiClientStub;
 
     /** @before */
     protected function setUpConfig()
     {
         // Save original values so that we can restore them after running tests
-        $this->origMerchantId = \Zotapay\Zotapay::getMerchantId();
-        $this->origMerchantSecretKey = \Zotapay\Zotapay::getMerchantSecretKey();
-        $this->origEndpoint = \Zotapay\Zotapay::getEndpoint();
-        $this->origApiBase = \Zotapay\Zotapay::getApiBase();
+        $this->origMerchantId = \Zota\Zota::getMerchantId();
+        $this->origMerchantSecretKey = \Zota\Zota::getMerchantSecretKey();
+        $this->origEndpoint = \Zota\Zota::getEndpoint();
+        $this->origApiBase = \Zota\Zota::getApiBase();
 
         // Set up host and credentials
-        \Zotapay\Zotapay::setMerchantId('api_test_merchant_id');
-        \Zotapay\Zotapay::setMerchantSecretKey('api_test_merchant_secret_key');
-        \Zotapay\Zotapay::setEndpoint('api_test_endpoint');  // USD Sandbox environment
-        \Zotapay\Zotapay::setApiBase('https://api.zotapay-sandbox.com'); // Sandbox environment
+        \Zota\Zota::setMerchantId('api_test_merchant_id');
+        \Zota\Zota::setMerchantSecretKey('api_test_merchant_secret_key');
+        \Zota\Zota::setEndpoint('api_test_endpoint');  // USD Sandbox environment
+        \Zota\Zota::setApiBase('https://api.Zota-sandbox.com'); // Sandbox environment
 
         if (!empty(getenv('API_INTEGRATION_TESTS'))) {
-            \Zotapay\Zotapay::setMerchantId(getenv('API_MERCHANT_ID'));
-            \Zotapay\Zotapay::setMerchantSecretKey(getenv('API_MERCHANT_SECRET_KEY'));
-            \Zotapay\Zotapay::setEndpoint('503364');  // USD Sandbox environment
+            \Zota\Zota::setMerchantId(getenv('API_MERCHANT_ID'));
+            \Zota\Zota::setMerchantSecretKey(getenv('API_MERCHANT_SECRET_KEY'));
+            \Zota\Zota::setEndpoint('503364');  // USD Sandbox environment
             return;
         }
 
@@ -71,7 +71,7 @@ trait TestHelper
             $expected['code'],
         ];
 
-        $this->apiClientStub = $this->createMock(\Zotapay\ApiRequest::class);
+        $this->apiClientStub = $this->createMock(\Zota\ApiRequest::class);
         $this->apiClientStub->method('request')->willReturn($response);
     }
 
@@ -120,9 +120,9 @@ trait TestHelper
     protected function tearDownConfig()
     {
         // Restore original values
-        \Zotapay\Zotapay::setMerchantId($this->origMerchantId);
-        \Zotapay\Zotapay::setMerchantSecretKey($this->origMerchantSecretKey);
-        \Zotapay\Zotapay::setEndpoint($this->origEndpoint);
-        \Zotapay\Zotapay::setApiBase($this->origApiBase);
+        \Zota\Zota::setMerchantId($this->origMerchantId);
+        \Zota\Zota::setMerchantSecretKey($this->origMerchantSecretKey);
+        \Zota\Zota::setEndpoint($this->origEndpoint);
+        \Zota\Zota::setApiBase($this->origApiBase);
     }
 }

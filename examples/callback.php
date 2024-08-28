@@ -61,7 +61,7 @@ $filename = dirname(__FILE__) . '/' . uniqid() . '.json';
 // simulate callback
 try {
     file_put_contents($filename, $data);
-    $callback = new \Zotapay\ApiCallback($filename);
+    $callback = new \Zota\ApiCallback($filename);
 
     // result
     echo '<pre>';
@@ -80,9 +80,9 @@ try {
     echo 'originalRequest: ' . print_r($callback->getOriginalRequest(), true) . '<br>';
     echo 'signature: ' . $callback->getSignature() . '<br>';
     echo '</pre>';
-} catch (\Zotapay\Exception\ApiCallbackException $e) {
+} catch (\Zota\Exception\ApiCallbackException $e) {
     echo $e->getMessage();
-} catch (\Zotapay\Exception\InvalidSignatureException $e) {
+} catch (\Zota\Exception\InvalidSignatureException $e) {
     echo $e->getMessage();
 } finally {
     unlink($filename);

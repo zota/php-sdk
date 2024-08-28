@@ -1,8 +1,8 @@
 <?php
 
-use Zotapay\Zotapay;
-use Zotapay\Deposit;
-use Zotapay\DepositOrder;
+use Zota\Zota;
+use Zota\Deposit;
+use Zota\DepositOrder;
 
 // error reporting
 ini_set('error_reporting', E_ALL);
@@ -13,7 +13,7 @@ require 'autoload.php';
 /**
  * Settings ----------------------------------------
  */
-Zotapay::setMerchantId(getenv('API_MERCHANT_ID'));
-Zotapay::setMerchantSecretKey(getenv('API_MERCHANT_SECRET_KEY'));
-Zotapay::setEndpoint('503364');  // USD Sandbox environment
-Zotapay::setApiBase('https://api.zotapay-sandbox.com'); // Sandbox environment
+Zota::setMerchantId(getenv('API_MERCHANT_ID'));
+Zota::setMerchantSecretKey(getenv('API_MERCHANT_SECRET_KEY'));
+Zota::setEndpoint('503364');  // USD Sandbox environment
+Zota::setApiBase('https://api.Zota-sandbox.com'); // Sandbox environment

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * Class ApiCallback.
@@ -108,7 +108,7 @@ class ApiCallback
 
     public function __construct($stream = null)
     {
-        Zotapay::getLogger()->info('Callback request received.');
+        Zota::getLogger()->info('Callback request received.');
 
         // param added for testing
         if (null === $stream) {
@@ -116,7 +116,7 @@ class ApiCallback
         }
 
         // logging debug
-        Zotapay::getLogger()->debug('Callback request file get contents from stream: {stream}', ['stream' => $stream]);
+        Zota::getLogger()->debug('Callback request file get contents from stream: {stream}', ['stream' => $stream]);
 
         // fetch the body
         $raw = \file_get_contents($stream);
@@ -127,7 +127,7 @@ class ApiCallback
         }
 
         // logging debug
-        Zotapay::getLogger()->debug('Callback request json decode raw data.');
+        Zota::getLogger()->debug('Callback request json decode raw data.');
 
         // get data
         $data = \json_decode($raw, JSON_OBJECT_AS_ARRAY);
@@ -136,18 +136,18 @@ class ApiCallback
         }
 
         // logging debug
-        Zotapay::getLogger()->debug('Callback request signature verification.');
+        Zota::getLogger()->debug('Callback request signature verification.');
 
         // signature verification
         if (false === $this->signatureVerify($data)) {
             $message = 'Invalid Signature';
             $this->errorMessage = $message;
 
-            Zotapay::getLogger()->error('Callback request error: {error}', ['error' => $message]);
+            Zota::getLogger()->error('Callback request error: {error}', ['error' => $message]);
 
             header("HTTP/1.1 401 Unauthorized");
 
-            throw new \Zotapay\Exception\InvalidSignatureException($message);
+            throw new \Zota\Exception\InvalidSignatureException($message);
         }
 
         // set data
@@ -166,26 +166,26 @@ class ApiCallback
         $this->originalRequest = isset($data['originalRequest']) ? $data['originalRequest'] : null;
         $this->signature = isset($data['signature']) ? $data['signature'] : null;
 
-        Zotapay::getLogger()->info('Callback request merchantOrderID #{merchantOrderID} data set.', ['merchantOrderID' => $this->getMerchantOrderID()]);
+        Zota::getLogger()->info('Callback request merchantOrderID #{merchantOrderID} data set.', ['merchantOrderID' => $this->getMerchantOrderID()]);
     }
 
 
     /**
      * @param string $error
      *
-     * @throws \Zotapay\Exception\ApiCallbackException
+     * @throws \Zota\Exception\ApiCallbackException
      */
     private function handleError($error)
     {
-        $message = 'Zotapay API Callback error: ' . $error;
+        $message = 'Zota API Callback error: ' . $error;
 
         $this->errorMessage = $message;
 
-        Zotapay::getLogger()->error('Callback request error: {error}', ['error' => $error]);
+        Zota::getLogger()->error('Callback request error: {error}', ['error' => $error]);
 
         header("HTTP/1.1 400 Bad request");
 
-        throw new \Zotapay\Exception\ApiCallbackException($message);
+        throw new \Zota\Exception\ApiCallbackException($message);
     }
 
 
@@ -208,7 +208,7 @@ class ApiCallback
         $verify['status'] = isset($data['status']) ? $data['status'] : '';
         $verify['amount'] = isset($data['amount']) ? $data['amount'] : '';
         $verify['customerEmail'] = isset($data['customerEmail']) ? $data['customerEmail'] : '';
-        $verify['merchantSecretKey'] = \Zotapay\Zotapay::getMerchantSecretKey();
+        $verify['merchantSecretKey'] = \Zota\Zota::getMerchantSecretKey();
 
         $signature = hash('sha256', \implode('', $verify));
 

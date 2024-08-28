@@ -7,13 +7,13 @@ require 'config.php';
  */
 
 // setup data
-$data = new \Zotapay\OrderStatusData();
+$data = new \Zota\OrderStatusData();
 
 $data->setOrderID('24043625');
 $data->setMerchantOrderID('170');
 
 // request
-$operation = new \Zotapay\OrderStatus();
+$operation = new \Zota\OrderStatus();
 $response = $operation->request($data);
 
 // result

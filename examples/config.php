@@ -8,15 +8,15 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 
 // Endpoints URL
-define('ZOTAPAY_EXAMPLES_URL', 'http://zotapay.local/php-sdk/examples');
+define('Zota_EXAMPLES_URL', 'http://Zota.local/php-sdk/examples');
 // phpcs:enable
 
 // Settings
-\Zotapay\Zotapay::setMerchantId(getenv('API_MERCHANT_ID'));
-\Zotapay\Zotapay::setMerchantSecretKey(getenv('API_MERCHANT_SECRET_KEY'));
-\Zotapay\Zotapay::setEndpoint('503364');  // USD Sandbox environment
-\Zotapay\Zotapay::setApiBase('https://api.zotapay-sandbox.com'); // Sandbox environment
+\Zota\Zota::setMerchantId(getenv('API_MERCHANT_ID'));
+\Zota\Zota::setMerchantSecretKey(getenv('API_MERCHANT_SECRET_KEY'));
+\Zota\Zota::setEndpoint('503364');  // USD Sandbox environment
+\Zota\Zota::setApiBase('https://api.Zota-sandbox.com'); // Sandbox environment
 
 // Logging
-\Zotapay\Zotapay::setLogThreshold('debug');
-\Zotapay\Zotapay::setLogDestination(dirname(__FILE__) . '/test.log');
+\Zota\Zota::setLogThreshold('debug');
+\Zota\Zota::setLogDestination(dirname(__FILE__) . '/test.log');

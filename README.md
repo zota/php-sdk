@@ -12,7 +12,7 @@
 This is the official page of the [Zota](https://www.zota.com) PHP SDK. It is intended to be used by developers who run modern PHP applications and would like to integrate our next-generation payments platform.
 
 ## Introduction
-PHP SDK provides all the neccessary methods for integrating the Zotapay Merchant API. This SDK is used by clients, as well as all the related eCommerce plugins for mainstream PHP applications.
+PHP SDK provides all the neccessary methods for integrating the Zota Merchant API. This SDK is used by clients, as well as all the related eCommerce plugins for mainstream PHP applications.
 
 ## Requirements
 - A functioning Zota Sandbox or Production account and related credentials

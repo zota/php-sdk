@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay\Log;
+namespace Zota\Log;
 
 /**
  * Log levels class.

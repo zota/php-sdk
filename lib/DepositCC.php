@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * Class DepositCC.
@@ -8,46 +8,46 @@ namespace Zotapay;
 class DepositCC extends AbstractApiClient
 {
     /**
-     * Make a deposit request to Zotapay API with credit card integration.
+     * Make a deposit request to Zota API with credit card integration.
      *
-     * @param \Zotapay\DepositOrder $order
+     * @param \Zota\DepositOrder $order
      *
-     * @return \Zotapay\DepositCCApiResponse
+     * @return \Zota\DepositCCApiResponse
      */
     public function request($order)
     {
         // return directly mock response if available.
         $mockResponse = $this->getMockResponse();
         if (!empty($mockResponse)) {
-            Zotapay::getLogger()->debug('Using mocked response for depositCC request.', []);
-            $response = new \Zotapay\DepositCCApiResponse($mockResponse);
+            Zota::getLogger()->debug('Using mocked response for depositCC request.', []);
+            $response = new \Zota\DepositCCApiResponse($mockResponse);
             return $response;
         }
 
         // setup url
-        $url =  \Zotapay\Zotapay::getApiUrl() .
+        $url =  \Zota\Zota::getApiUrl() .
                 '/deposit/request/' .
-                \Zotapay\Zotapay::getEndpoint();
+                \Zota\Zota::getEndpoint();
 
         // setup data
-        Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Deposit CC prepare post data.', ['merchantOrderID' => $order->getMerchantOrderID()]);
+        Zota::getLogger()->debug('merchantOrderID #{merchantOrderID} Deposit CC prepare post data.', ['merchantOrderID' => $order->getMerchantOrderID()]);
         $data = $this->prepare($order);
         $signed = $this->sign($data);
 
         // make the request
-        Zotapay::getLogger()->info('Deposit CC request.');
+        Zota::getLogger()->info('Deposit CC request.');
         $request = $this->apiRequest->request('post', $url, $signed);
 
         // set the response
-        Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Deposit CC response.', ['merchantOrderID' => $order->getMerchantOrderID()]);
-        $response = new \Zotapay\DepositCCApiResponse($request);
+        Zota::getLogger()->debug('merchantOrderID #{merchantOrderID} Deposit CC response.', ['merchantOrderID' => $order->getMerchantOrderID()]);
+        $response = new \Zota\DepositCCApiResponse($request);
 
         return $response;
     }
 
 
     /**
-     * @param \Zotapay\DepositOrder $order
+     * @param \Zota\DepositOrder $order
      *
      * @return array
      */
@@ -92,11 +92,11 @@ class DepositCC extends AbstractApiClient
     private function sign($data)
     {
         $dataToSign = [
-            \Zotapay\Zotapay::getEndpoint(),
+            \Zota\Zota::getEndpoint(),
             $data['merchantOrderID'],
             $data['orderAmount'],
             $data['customerEmail'],
-            \Zotapay\Zotapay::getMerchantSecretKey(),
+            \Zota\Zota::getMerchantSecretKey(),
         ];
 
         $stringToSign = implode($dataToSign);

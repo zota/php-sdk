@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * Class ApiResponse.
@@ -58,7 +58,7 @@ class ApiResponse
     public function __construct($httpClientRequest)
     {
         if (false === $httpClientRequest) {
-            $this->message = 'Zotapay API Response not valid.';
+            $this->message = 'Zota API Response not valid.';
             return;
         }
 
@@ -68,7 +68,7 @@ class ApiResponse
         $json = \json_decode($this->body, JSON_OBJECT_AS_ARRAY);
         if (\json_last_error() !== JSON_ERROR_NONE) {
             $this->json = false;
-            $this->message = 'Zotapay API Response JSON error: ' . \json_last_error_msg();
+            $this->message = 'Zota API Response JSON error: ' . \json_last_error_msg();
             return;
         }
 

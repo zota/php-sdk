@@ -1,9 +1,9 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
- * Class ZotapayOrder.
+ * Class ZotaOrder.
  */
 abstract class AbstractOrder extends AbstractData
 {
