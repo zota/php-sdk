@@ -24,7 +24,7 @@ require $sdkAbsPath . '/lib/ApiRequest.php';
 require $sdkAbsPath . '/lib/ApiResponse.php';
 require $sdkAbsPath . '/lib/ApiCallback.php';
 require $sdkAbsPath . '/lib/MerchantRedirect.php';
-require $sdkAbsPath . '/lib/Zotapay.php';
+require $sdkAbsPath . '/lib/Zota.php';
 require $sdkAbsPath . '/lib/Deposit.php';
 require $sdkAbsPath . '/lib/DepositApiResponse.php';
 require $sdkAbsPath . '/lib/DepositCC.php';

@@ -7,7 +7,7 @@ require 'config.php';
  */
 
 // setup data
-$data = new \Zotapay\OrdersReportData();
+$data = new \Zota\OrdersReportData();
 
 $data->setDateType('created');
 $data->setEndpointIds('503364,503365');
@@ -17,7 +17,7 @@ $data->setToDate('2020-06-30');
 $data->setTypes('SALE,PAYOUT');
 
 // request
-$operation = new \Zotapay\OrdersReport();
+$operation = new \Zota\OrdersReport();
 $response = $operation->request($data);
 
 // result

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="zotapay">
-    <description>Zotapay PHP SDK coding standards.</description>
+<ruleset name="Zota">
+    <description>Zota PHP SDK coding standards.</description>
 
     <file>.</file>
     <arg name="extensions" value="php"/>

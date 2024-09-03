@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * Class OrderStatusApiResponse.

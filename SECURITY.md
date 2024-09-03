@@ -11,4 +11,4 @@ The officially supported version of the SDK is as follows:
 
 ## Reporting a Vulnerability
 
-Disclosure of vulnearbilities and security-related inquiries should be done via security@zotapay.com.
+Disclosure of vulnearbilities and security-related inquiries should be done via security@Zota.com.

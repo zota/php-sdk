@@ -5,13 +5,13 @@ require 'config.php';
 /**
  * Payout ----------------------------------------
  */
-$order = new \Zotapay\PayoutOrder();
+$order = new \Zota\PayoutOrder();
 
 $order->setMerchantOrderID('312');
 $order->setMerchantOrderDesc('Test order description');
 $order->setOrderAmount('100.00');
 $order->setOrderCurrency('USD');
-$order->setCustomerEmail('testing@zotapay-php-sdk.com');
+$order->setCustomerEmail('testing@Zota-php-sdk.com');
 $order->setCustomerFirstName('John');
 $order->setCustomerLastName('Lock');
 $order->setCustomerPhone('+1 420-100-1000');
@@ -25,7 +25,7 @@ $order->setCustomerBankZipCode('84280');
 $order->setCustomerBankRoutingNumber('000');
 $order->setCustomerBankProvince('Bank Province');
 $order->setCustomerBankArea('Bank Area / City');
-$order->setCallbackUrl(ZOTAPAY_EXAMPLES_URL . '/callback.php');
+$order->setCallbackUrl(Zota_EXAMPLES_URL . '/callback.php');
 $order->setCustomParam(json_encode([ 'TestCustomParam' => '123' ]));
 $order->setLanguage('EN');
 $order->setCustomerCountryCode('TH');
@@ -34,10 +34,10 @@ $order->setCustomerBankAccountNumberDigit('02');
 $order->setCustomerBankAccountType('03');
 $order->setCustomerBankSwiftCode('123456789');
 $order->setCustomerBankBranchDigit('04');
-$order->setRedirectUrl('https://testingzotapayredirecturl.com');
+$order->setRedirectUrl('https://testingZotaredirecturl.com');
 
 // request
-$operation = new \Zotapay\Payout();
+$operation = new \Zota\Payout();
 $response = $operation->request($order);
 
 // result

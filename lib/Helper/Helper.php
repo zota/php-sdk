@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay\Helper;
+namespace Zota\Helper;
 
 /**
  * Helper.

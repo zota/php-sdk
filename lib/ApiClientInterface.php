@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * ApiClientInterface.
@@ -8,9 +8,9 @@ namespace Zotapay;
 interface ApiClientInterface
 {
     /**
-     * Zotapay API request.
+     * Zota API request.
      *
-     * @param \Zotapay\Data $data
+     * @param \Zota\Data $data
      *
      * @return self
      */

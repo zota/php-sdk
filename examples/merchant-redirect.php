@@ -67,8 +67,8 @@ foreach ($data['error'] as $key => $value) {
 }
 
 try {
-    \Zotapay\Zotapay::setMerchantSecretKey('MERCHANT-SECRET-KEY');
-    $redirect = new \Zotapay\MerchantRedirect();
+    \Zota\Zota::setMerchantSecretKey('MERCHANT-SECRET-KEY');
+    $redirect = new \Zota\MerchantRedirect();
 
     // result
     echo '<pre>';
@@ -79,6 +79,6 @@ try {
     echo 'signature: ' . $redirect->getSignature() . '<br>';
     echo 'status: ' . $redirect->getStatus() . '<br>';
     echo '</pre>';
-} catch (\Zotapay\Exception\InvalidSignatureException $e) {
+} catch (\Zota\Exception\InvalidSignatureException $e) {
     echo $e->getMessage();
 }

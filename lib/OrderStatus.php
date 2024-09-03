@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * Class OrderStatus.
@@ -18,7 +18,7 @@ class OrderStatus extends AbstractApiClient
     /**
      * Class constructor.
      *
-     * @param \Zotapay\Data $data
+     * @param \Zota\Data $data
      */
     public function __construct($data = null)
     {
@@ -29,54 +29,54 @@ class OrderStatus extends AbstractApiClient
 
 
     /**
-     * Make an order status request to Zotapay API.
+     * Make an order status request to Zota API.
      *
-     * @param \Zotapay\OrderStatusData $data
+     * @param \Zota\OrderStatusData $data
      *
-     * @return \Zotapay\OrderStatusApiResponse
+     * @return \Zota\OrderStatusApiResponse
      */
     public function request($data)
     {
         // return directly mock response if available.
         $mockResponse = $this->getMockResponse();
         if (!empty($mockResponse)) {
-            Zotapay::getLogger()->debug('Using mocked response for order status request.', []);
-            $response = new \Zotapay\OrderStatusApiResponse($mockResponse);
+            Zota::getLogger()->debug('Using mocked response for order status request.', []);
+            $response = new \Zota\OrderStatusApiResponse($mockResponse);
             return $response;
         }
         // setup url
-        $url =  \Zotapay\Zotapay::getApiUrl() . '/query/order-status/';
+        $url =  \Zota\Zota::getApiUrl() . '/query/order-status/';
 
         // setup data
         // @codingStandardsIgnoreStart
-        Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Order Status prepare post data.', ['merchantOrderID' => $data->getMerchantOrderID()]);
+        Zota::getLogger()->debug('merchantOrderID #{merchantOrderID} Order Status prepare post data.', ['merchantOrderID' => $data->getMerchantOrderID()]);
         // @codingStandardsIgnoreEnd
         $prepared = $this->prepare($data);
         $signed = $this->sign($prepared);
 
         // make the request
-        Zotapay::getLogger()->info('Order Status request.');
+        Zota::getLogger()->info('Order Status request.');
         $request = $this->apiRequest->request('get', $url, $signed);
 
         // set the response
         // @codingStandardsIgnoreStart
-        Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Order Status response.', ['merchantOrderID' => $data->getMerchantOrderID()]);
+        Zota::getLogger()->debug('merchantOrderID #{merchantOrderID} Order Status response.', ['merchantOrderID' => $data->getMerchantOrderID()]);
         // @codingStandardsIgnoreEnd                
-        $response = new \Zotapay\OrderStatusApiResponse($request);
+        $response = new \Zota\OrderStatusApiResponse($request);
 
         return $response;
     }
 
 
     /**
-     * @param \Zotapay\OrderStatusData $data
+     * @param \Zota\OrderStatusData $data
      *
      * @return array
      */
     private function prepare($data)
     {
         return [
-            'merchantID'        => \Zotapay\Zotapay::getMerchantId(),
+            'merchantID'        => \Zota\Zota::getMerchantId(),
             'merchantOrderID'   => $data->getMerchantOrderID(),
             'orderID'           => $data->getOrderID(),
             'timestamp'         => $this->timestamp,
@@ -96,7 +96,7 @@ class OrderStatus extends AbstractApiClient
             $data['merchantOrderID'],
             $data['orderID'],
             $data['timestamp'],
-            \Zotapay\Zotapay::getMerchantSecretKey(),
+            \Zota\Zota::getMerchantSecretKey(),
         ];
 
         $stringToSign = implode($dataToSign);

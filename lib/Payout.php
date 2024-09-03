@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * Class Payout.
@@ -8,39 +8,39 @@ namespace Zotapay;
 class Payout extends AbstractApiClient
 {
     /**
-     * Make a payout request to Zotapay API.
+     * Make a payout request to Zota API.
      *
      * @param PayoutOrder $order
      *
-     * @return \Zotapay\PayoutApiResponse
+     * @return \Zota\PayoutApiResponse
      */
     public function request($order)
     {
         // return directly mock response if available.
         $mockResponse = $this->getMockResponse();
         if (!empty($mockResponse)) {
-            Zotapay::getLogger()->debug('Using mocked response for payout request.', []);
-            $response = new \Zotapay\PayoutApiResponse($mockResponse);
+            Zota::getLogger()->debug('Using mocked response for payout request.', []);
+            $response = new \Zota\PayoutApiResponse($mockResponse);
             return $response;
         }
 
         // setup url
-        $url =  \Zotapay\Zotapay::getApiUrl() .
+        $url =  \Zota\Zota::getApiUrl() .
                 '/payout/request/' .
-                \Zotapay\Zotapay::getEndpoint();
+                \Zota\Zota::getEndpoint();
 
         // setup data
-        Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Payout prepare post data.', ['merchantOrderID' => $order->getMerchantOrderID()]);
+        Zota::getLogger()->debug('merchantOrderID #{merchantOrderID} Payout prepare post data.', ['merchantOrderID' => $order->getMerchantOrderID()]);
         $data = $this->prepare($order);
         $signed = $this->sign($data);
 
         // make the request
-        Zotapay::getLogger()->info('Payout request.');
+        Zota::getLogger()->info('Payout request.');
         $request = $this->apiRequest->request('post', $url, $signed);
 
         // set the response
-        Zotapay::getLogger()->debug('merchantOrderID #{merchantOrderID} Payout response.', ['merchantOrderID' => $order->getMerchantOrderID()]);
-        $response = new \Zotapay\PayoutApiResponse($request);
+        Zota::getLogger()->debug('merchantOrderID #{merchantOrderID} Payout response.', ['merchantOrderID' => $order->getMerchantOrderID()]);
+        $response = new \Zota\PayoutApiResponse($request);
 
         return $response;
     }
@@ -94,12 +94,12 @@ class Payout extends AbstractApiClient
     private function sign($data)
     {
         $dataToSign = [
-            \Zotapay\Zotapay::getEndpoint(),
+            \Zota\Zota::getEndpoint(),
             $data['merchantOrderID'],
             $data['orderAmount'],
             $data['customerEmail'],
             $data['customerBankAccountNumber'],
-            \Zotapay\Zotapay::getMerchantSecretKey(),
+            \Zota\Zota::getMerchantSecretKey(),
         ];
 
         $stringToSign = implode($dataToSign);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay\Log;
+namespace Zota\Log;
 
 /**
  * Class DefaultLogger.
@@ -22,12 +22,12 @@ class DefaultLogger implements LoggerInterface
      */
     public function __construct($threshold = null)
     {
-        if (null !== $threshold && ! \Zotapay\Log\LogLevels::isValidLevel($threshold)) {
+        if (null !== $threshold && ! \Zota\Log\LogLevels::isValidLevel($threshold)) {
             $threshold = null;
         }
 
         if (null !== $threshold) {
-            $threshold = \Zotapay\Log\LogLevels::getLevelSeverity($threshold);
+            $threshold = \Zota\Log\LogLevels::getLevelSeverity($threshold);
         } else {
             $threshold = 0;
         }
@@ -53,15 +53,15 @@ class DefaultLogger implements LoggerInterface
      */
     public function log($level, $message, $context = array())
     {
-        if (!\Zotapay\Log\LogLevels::isValidLevel($level)) {
-            throw new \Zotapay\Exception\InvalidArgumentException();
+        if (!\Zota\Log\LogLevels::isValidLevel($level)) {
+            throw new \Zota\Exception\InvalidArgumentException();
         }
 
-        if ($this->threshold > \Zotapay\Log\LogLevels::getLevelSeverity($level)) {
+        if ($this->threshold > \Zota\Log\LogLevels::getLevelSeverity($level)) {
             return;
         }
 
-        $handler = new \Zotapay\Log\DefaultLogHandler();
+        $handler = new \Zota\Log\DefaultLogHandler();
 
         return $handler->handle(time(), $level, $message, $context);
     }
@@ -75,7 +75,7 @@ class DefaultLogger implements LoggerInterface
      */
     public function emergency($message, array $context = array())
     {
-        return $this->log(\Zotapay\Log\LogLevels::EMERGENCY, $message, $context);
+        return $this->log(\Zota\Log\LogLevels::EMERGENCY, $message, $context);
     }
 
     /**
@@ -90,7 +90,7 @@ class DefaultLogger implements LoggerInterface
      */
     public function alert($message, array $context = array())
     {
-        return $this->log(\Zotapay\Log\LogLevels::ALERT, $message, $context);
+        return $this->log(\Zota\Log\LogLevels::ALERT, $message, $context);
     }
 
     /**
@@ -104,7 +104,7 @@ class DefaultLogger implements LoggerInterface
      */
     public function critical($message, array $context = array())
     {
-        return $this->log(\Zotapay\Log\LogLevels::CRITICAL, $message, $context);
+        return $this->log(\Zota\Log\LogLevels::CRITICAL, $message, $context);
     }
 
     /**
@@ -117,7 +117,7 @@ class DefaultLogger implements LoggerInterface
      */
     public function error($message, array $context = array())
     {
-        return $this->log(\Zotapay\Log\LogLevels::ERROR, $message, $context);
+        return $this->log(\Zota\Log\LogLevels::ERROR, $message, $context);
     }
 
     /**
@@ -132,7 +132,7 @@ class DefaultLogger implements LoggerInterface
      */
     public function warning($message, array $context = array())
     {
-        return $this->log(\Zotapay\Log\LogLevels::WARNING, $message, $context);
+        return $this->log(\Zota\Log\LogLevels::WARNING, $message, $context);
     }
 
     /**
@@ -144,7 +144,7 @@ class DefaultLogger implements LoggerInterface
      */
     public function notice($message, array $context = array())
     {
-        return $this->log(\Zotapay\Log\LogLevels::NOTICE, $message, $context);
+        return $this->log(\Zota\Log\LogLevels::NOTICE, $message, $context);
     }
 
     /**
@@ -158,7 +158,7 @@ class DefaultLogger implements LoggerInterface
      */
     public function info($message, array $context = array())
     {
-        return $this->log(\Zotapay\Log\LogLevels::INFO, $message, $context);
+        return $this->log(\Zota\Log\LogLevels::INFO, $message, $context);
     }
 
     /**
@@ -170,6 +170,6 @@ class DefaultLogger implements LoggerInterface
      */
     public function debug($message, array $context = array())
     {
-        return $this->log(\Zotapay\Log\LogLevels::DEBUG, $message, $context);
+        return $this->log(\Zota\Log\LogLevels::DEBUG, $message, $context);
     }
 }

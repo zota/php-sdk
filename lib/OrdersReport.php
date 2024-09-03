@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * Class OrdersReport.
@@ -18,7 +18,7 @@ class OrdersReport extends AbstractApiClient
     /**
      * Class constructor.
      *
-     * @param \Zotapay\Data $data
+     * @param \Zota\Data $data
      */
     public function __construct($data = null)
     {
@@ -28,52 +28,52 @@ class OrdersReport extends AbstractApiClient
     }
 
     /**
-     * @param \Zotapay\OrdersReportData $data
+     * @param \Zota\OrdersReportData $data
      *
-     * @return \Zotapay\OrdersReportApiResponse
+     * @return \Zota\OrdersReportApiResponse
      */
     public function request($data)
     {
         // return directly mock response if available.
         $mockResponse = $this->getMockResponse();
         if (!empty($mockResponse)) {
-            Zotapay::getLogger()->debug('Using mocked response for orders report request.', []);
-            $response = new \Zotapay\OrdersReportApiResponse($mockResponse);
+            Zota::getLogger()->debug('Using mocked response for orders report request.', []);
+            $response = new \Zota\OrdersReportApiResponse($mockResponse);
             return $response;
         }
         // setup url
-        $url =  \Zotapay\Zotapay::getApiUrl() . '/query/orders-report/csv/';
+        $url =  \Zota\Zota::getApiUrl() . '/query/orders-report/csv/';
 
         // setup data
-        Zotapay::getLogger()->debug('Orders Report prepare post data.');
+        Zota::getLogger()->debug('Orders Report prepare post data.');
         $prepared = $this->prepare($data);
         $signed = $this->sign($prepared);
 
         // make the request
-        Zotapay::getLogger()->info('Orders Report request.');
+        Zota::getLogger()->info('Orders Report request.');
         $request = $this->apiRequest->request('get', $url, $signed);
 
         // set the response
-        Zotapay::getLogger()->debug('Orders Report response.');
-        $response = new \Zotapay\OrdersReportApiResponse($request);
+        Zota::getLogger()->debug('Orders Report response.');
+        $response = new \Zota\OrdersReportApiResponse($request);
 
         return $response;
     }
 
 
     /**
-     * @param \Zotapay\OrderStatusData $data
+     * @param \Zota\OrderStatusData $data
      *
      * @return array
      */
     private function prepare($data)
     {
         return [
-            'merchantID'    => \Zotapay\Zotapay::getMerchantId(),
+            'merchantID'    => \Zota\Zota::getMerchantId(),
             'dateType'      => $data->getDateType(),
             'endpointIds'   => $data->getEndpointIds(),
             'fromDate'      => $data->getFromDate(),
-            'requestID'     => \Zotapay\Helper\Helper::generateUuid(),
+            'requestID'     => \Zota\Helper\Helper::generateUuid(),
             'statuses'      => $data->getStatuses(),
             'timestamp'     => $this->timestamp,
             'toDate'        => $data->getToDate(),
@@ -90,7 +90,7 @@ class OrdersReport extends AbstractApiClient
     private function sign($data)
     {
         $dataToSign = [
-            \Zotapay\Zotapay::getMerchantId(),
+            \Zota\Zota::getMerchantId(),
             $data['dateType'],
             $data['endpointIds'],
             $data['fromDate'],
@@ -99,7 +99,7 @@ class OrdersReport extends AbstractApiClient
             $data['timestamp'],
             $data['toDate'],
             $data['types'],
-            \Zotapay\Zotapay::getMerchantSecretKey(),
+            \Zota\Zota::getMerchantSecretKey(),
         ];
 
         $stringToSign = implode($dataToSign);

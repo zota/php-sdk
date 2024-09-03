@@ -7,13 +7,13 @@ require 'config.php';
  */
 
 // setup order
-$order = new \Zotapay\DepositOrder();
+$order = new \Zota\DepositOrder();
 
 $order->setMerchantOrderID('403');
 $order->setMerchantOrderDesc('Test order description');
 $order->setOrderAmount('100.00');
 $order->setOrderCurrency('USD');
-$order->setCustomerEmail('testing@zotapay-php-sdk.com');
+$order->setCustomerEmail('testing@Zota-php-sdk.com');
 $order->setCustomerFirstName('John');
 $order->setCustomerLastName('Lock');
 $order->setCustomerAddress('The Swan, Jungle St. 108');
@@ -24,9 +24,9 @@ $order->setCustomerZipCode('90015');
 $order->setCustomerPhone('+1 420-100-1000');
 $order->setCustomerIP('134.201.250.130');
 $order->setCustomerBankCode('');
-$order->setRedirectUrl(ZOTAPAY_EXAMPLES_URL . '/redirect.php');
-$order->setCallbackUrl(ZOTAPAY_EXAMPLES_URL . '/callback.php');
-$order->setCheckoutUrl(ZOTAPAY_EXAMPLES_URL . '/checkout.php');
+$order->setRedirectUrl(Zota_EXAMPLES_URL . '/redirect.php');
+$order->setCallbackUrl(Zota_EXAMPLES_URL . '/callback.php');
+$order->setCheckoutUrl(Zota_EXAMPLES_URL . '/checkout.php');
 $order->setCustomParam(json_encode([ 'TestCustomParam' => '123' ]));
 $order->setLanguage('EN');
 
@@ -38,7 +38,7 @@ $order->setCardExpirationYear('21');
 $order->setCardCvv('111');
 
 // request
-$operation = new \Zotapay\DepositCC();
+$operation = new \Zota\DepositCC();
 $response = $operation->request($order);
 
 // result

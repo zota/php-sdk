@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * Class ApiRequest.
@@ -10,14 +10,14 @@ class ApiRequest
     /**
      * HTTP client used for the requests
      *
-     * @var \Zotapay\HttpClient\HttpClientInterface
+     * @var \Zota\HttpClient\HttpClientInterface
      */
     protected $httpClient;
 
     /**
      * Set the $httpClient
      *
-     * @param null|\Zotapay\HttpClient\HttpClientInterface
+     * @param null|\Zota\HttpClient\HttpClientInterface
      */
     public function __construct($httpClient = null)
     {
@@ -28,7 +28,7 @@ class ApiRequest
     /**
      * Get the value of $httpClient
      *
-     * @return \Zotapay\HttpClient\HttpClientInterface
+     * @return \Zota\HttpClient\HttpClientInterface
      */
     public function getHttpClient()
     {
@@ -39,7 +39,7 @@ class ApiRequest
     /**
      * Set the value of $httpClient
      *
-     * @param null|\Zotapay\HttpClient\HttpClientInterface
+     * @param null|\Zota\HttpClient\HttpClientInterface
      *
      * @return self
      */
@@ -48,14 +48,14 @@ class ApiRequest
         $this->httpClient = $httpClient;
 
         if ($this->httpClient === null) {
-            $this->httpClient = new \Zotapay\HttpClient\CurlClient();
+            $this->httpClient = new \Zota\HttpClient\CurlClient();
         }
 
         return $this;
     }
 
     /**
-     * Make a request to the Zotapay API
+     * Make a request to the Zota API
      *
      * @param string $method method used for the request
      * @param string $url full representation of the requested url

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zotapay;
+namespace Zota;
 
 /**
  * Class MerchantRedirect.
@@ -52,21 +52,21 @@ class MerchantRedirect
 
     public function __construct()
     {
-        Zotapay::getLogger()->info('Merchant redirect request received.');
+        Zota::getLogger()->info('Merchant redirect request received.');
 
         // logging debug
-        Zotapay::getLogger()->debug('Merchant redirect request signature verification.');
+        Zota::getLogger()->debug('Merchant redirect request signature verification.');
 
         // signature verification
         if (false === $this->signatureVerify()) {
             $message = 'Merchant Redirect Error: Invalid Signature';
             $this->errorMessage = $message;
 
-            Zotapay::getLogger()->error('Merchant redirect request error: {error}', ['error' => $message]);
+            Zota::getLogger()->error('Merchant redirect request error: {error}', ['error' => $message]);
 
             header("HTTP/1.1 401 Unauthorized");
 
-            throw new \Zotapay\Exception\InvalidSignatureException($message);
+            throw new \Zota\Exception\InvalidSignatureException($message);
         }
 
         // set properties
@@ -76,7 +76,7 @@ class MerchantRedirect
         $this->orderID = isset($_GET['orderID']) ? $_GET['orderID'] : null;
         $this->signature = isset($_GET['signature']) ? $_GET['signature'] : null;
         $this->status = isset($_GET['status']) ? $_GET['status'] : null;
-        Zotapay::getLogger()->info('Merchant redirect request merchantOrderID #{merchantOrderID} data set.', ['merchantOrderID' => $this->getMerchantOrderID()]);
+        Zota::getLogger()->info('Merchant redirect request merchantOrderID #{merchantOrderID} data set.', ['merchantOrderID' => $this->getMerchantOrderID()]);
     }
 
 
@@ -94,7 +94,7 @@ class MerchantRedirect
         $verify['status'] = isset($_GET['status']) ? $_GET['status'] : '';
         $verify['orderID'] = isset($_GET['orderID']) ? $_GET['orderID'] : '';
         $verify['merchantOrderID'] = isset($_GET['merchantOrderID']) ? $_GET['merchantOrderID'] : '';
-        $verify['merchantSecretKey'] = \Zotapay\Zotapay::getMerchantSecretKey();
+        $verify['merchantSecretKey'] = \Zota\Zota::getMerchantSecretKey();
 
         $signature = hash('sha256', \implode('', $verify));
 
