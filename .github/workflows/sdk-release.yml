@@ -10,7 +10,6 @@ jobs:
     name: SDK Release Creation
     runs-on: ubuntu-latest
     permissions:
-      packages: write
       contents: write
     steps:
       - name: Checkout code
@@ -21,11 +20,6 @@ jobs:
       - name: Prepare repository
         run: |
           git config --global --add safe.directory /github/workspace
-      - name: Create Changelog
-        uses: scottbrenner/generate-changelog-action@master
-        id: changelog
-        env:
-          REPO: ${{ github.repository }}
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v2
@@ -33,5 +27,3 @@ jobs:
           tag_name: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
-            ${{ steps.changelog.outputs.changelog }}
