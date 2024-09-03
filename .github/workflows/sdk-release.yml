@@ -15,12 +15,12 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-      - name: Get version
-        id: vars
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
-      - name: changelog
+      - name: Prepare repository
+        run: |
+          git config --global --add safe.directory /github/workspace
+      - name: Create Changelog
         uses: scottbrenner/generate-changelog-action@master
-        id: Changelog
+        id: changelog
         env:
           REPO: ${{ github.repository }}
       - name: Create Release
@@ -29,9 +29,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.vars.outputs.tag }}
-          release_name: Release ${{ steps.vars.outputs.tag }}
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
           body: |
-            ${{ steps.Changelog.outputs.changelog }}
+            ${{ steps.changelog.outputs.changelog }}
           draft: false
           prerelease: false
