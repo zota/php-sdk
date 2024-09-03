@@ -9,6 +9,9 @@ jobs:
   build:
     name: SDK Release Creation
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,13 +28,10 @@ jobs:
           REPO: ${{ github.repository }}
       - name: Create Release
         id: create_release
-        uses: actions/create-release@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             ${{ steps.changelog.outputs.changelog }}
-          draft: false
-          prerelease: false
